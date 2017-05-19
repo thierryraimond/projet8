@@ -39,7 +39,7 @@ function (
 	Game.prototype.init = function () {
 		Debug.success("Game initialised.");
 
-		// Met la lang contenu dans le localstoage
+		// Met la langue contenue dans le localstorage
 		var settings = JSON.parse(localStorage.getItem("settings"));
 		if (settings == null) settings = {};
 		if (typeof settings.language != "undefined") Config.language = settings.language;

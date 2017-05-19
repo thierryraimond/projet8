@@ -12,8 +12,8 @@ function (
 		 * Information du jeu
 		 */
 		this.version = "1.0.0";
-		this.local = true; // Si les requête se font en local ou vers le serveur web.
-		this.language = "en";
+		this.local = true; // Si les requêtes se font en local ou vers le serveur web.
+		this.language = "fr";
 		this.availableLanguage = [
 			"de",
 			"en",
@@ -23,8 +23,9 @@ function (
 			"pl"
 		];
 
+		var localhost = 'http://localhost/oc/projet8/bin/localization/';
 		// var localhost = 'http://localhost/sokoban/localization/';
-		var localhost = 'https://fbgame.isartdigital.com/sokoban/sokoban26/bin/localization/';
+		// var localhost = 'https://fbgame.isartdigital.com/sokoban/sokoban26/bin/localization/';
 		var webhost = 'http://sokonyan.delfisakura.com/bin/localization/';
 		this.xliffPath = this.local ? localhost : webhost; // Chemin vers les fichiers de langues xliff
 
@@ -43,7 +44,7 @@ function (
 		 */
 		this.debug = true; // Active/Desactive les log dans la console
 		this.guiDebug = true; // Active/Desactive la gui de debugging
-		this.fps = false; // Active/Desactive le compteur de fps
+		this.fps = true; // Active/Desactive le compteur de fps
 		this.ms = false; // Active/Desactive le compteur de ms par frame
 		this.showHitbox = false; // Active/Desactive l'affichage des hitbox
 		this.showPivot = false; // Active/Desactive l'affichage des points de pivots
