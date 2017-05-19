@@ -24,16 +24,19 @@ if (!$arr) {
 	);";
 
 	$result =  SQLRequest($connexion, $request);
-	echo "created";
+//	echo "created";
+	echo "AccountCreated";
 	die();
 } else {
 	if ($arr[0]['password'] == $password) {
 		if ($isRequest == "false") {
-			echo "connected";
+//			echo "connected";
+			echo "GoodPassword";
 			die();
 		}
 	} else {
-		echo "wrongpassword";
+//		echo "wrongpassword";
+		echo "WrongPassword";
 		die();
 	}
 }

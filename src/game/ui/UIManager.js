@@ -48,6 +48,7 @@ function (
 	 * Ajoute un nouveau contenu d'écran dans le gameContainer
 	 */
 	UIManager.prototype.addScreen = function (name, fade) {
+		console.log('UIManage.prototype.addScreen : paramètre "name" = ' + name);
 		if (typeof fade == "undefined") fade = false;
 		eval(name).init(this);
 		this.currentScreen.push(name);

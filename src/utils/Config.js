@@ -23,11 +23,12 @@ function (
 			"pl"
 		];
 
-		var localhost = 'http://localhost/oc/projet8/bin/localization/';
+		this.localhost = 'http://localhost/oc/projet8/';
 		// var localhost = 'http://localhost/sokoban/localization/';
 		// var localhost = 'https://fbgame.isartdigital.com/sokoban/sokoban26/bin/localization/';
-		var webhost = 'http://sokonyan.delfisakura.com/bin/localization/';
-		this.xliffPath = this.local ? localhost : webhost; // Chemin vers les fichiers de langues xliff
+		var localization = 'bin/localization/';
+		this.webhost = 'http://sokonyan.delfisakura.com/';
+		this.xliffPath = this.local ? this.localhost+localization : this.webhost+localization ; // Chemin vers les fichiers de langues xliff
 
 		/**
 		 * Reglage écran

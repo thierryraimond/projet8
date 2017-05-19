@@ -40,16 +40,19 @@ function (
 			password: this.password,
 			isRequest: false
 		}, function (data) {
-			var screenList = {
-				created: "AccountCreated",
-				connected: "GoodPassword",
-				wrongpassword: "WrongPassword"
-			}
-			
+			console.log(data);
+//			var screenList = {
+//				created: "AccountCreated",
+//				connected: "GoodPassword",
+//				wrongpassword: "WrongPassword"
+//			}
+//			
 			data = data.replace(/ /g,"");
 			data = data.replace(/\n/g,"");
-
-			this.UIManager.addScreen(screenList[data], true);
+//
+//			console.log('screenList[data] = ' + screenList[data]);
+//			this.UIManager.addScreen(screenList[data], true);
+			this.UIManager.addScreen(data, true);
 			this.refreshProgress();
 			this.refreshScore();
 		}.bind(this));
