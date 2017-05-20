@@ -9,6 +9,10 @@ $name = getParam("name", "POST");
 $password = getParam("password", "POST");
 $isRequest = getParam("isRequest", "POST");
 
+// $name = getParam("name", "GET");
+// $password = getParam("password", "GET");
+// $isRequest = getParam("isRequest", "GET");
+
 $arr = SQLRequest($connexion, "SELECT * FROM users WHERE name='" . $name . "'");
 
 if (!$arr) {
@@ -25,18 +29,18 @@ if (!$arr) {
 
 	$result =  SQLRequest($connexion, $request);
 //	echo "created";
-	echo "AccountCreated";
+ 	echo json_encode("AccountCreated");
 	die();
 } else {
 	if ($arr[0]['password'] == $password) {
 		if ($isRequest == "false") {
 //			echo "connected";
-			echo "GoodPassword";
+ 			echo json_encode("GoodPassword");
 			die();
 		}
 	} else {
 //		echo "wrongpassword";
-		echo "WrongPassword";
+ 		echo json_encode("WrongPassword");
 		die();
 	}
 }

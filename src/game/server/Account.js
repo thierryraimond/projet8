@@ -27,9 +27,9 @@ function (
 	 * Permet de ce connecter ou créer un compte.
 	 * @name Nom de compte
 	 * @password Mot de passe du compte
-	 * Return "created" - Compte créer
-	 *		  "connected" - Connexion réussi
-	 *		  "wrongpassword" - Mot de passe incorrect ou compte déjà existant
+	 * Return "AccountCreated" - Compte créer
+	 *		  "GoodPassword" - Connexion réussi
+	 *		  "WrongPassword" - Mot de passe incorrect ou compte déjà existant
 	 */
 	Account.prototype.connect = function (name, password) {
 		this.name = name;
@@ -40,18 +40,21 @@ function (
 			password: this.password,
 			isRequest: false
 		}, function (data) {
-			console.log(data);
+			
 //			var screenList = {
 //				created: "AccountCreated",
 //				connected: "GoodPassword",
 //				wrongpassword: "WrongPassword"
-//			}
+//			};
 //			
-			data = data.replace(/ /g,"");
-			data = data.replace(/\n/g,"");
-//
-//			console.log('screenList[data] = ' + screenList[data]);
+//			data = data.replace(/ /g,"");
+//			data = data.replace(/\n/g,"");
+			
 //			this.UIManager.addScreen(screenList[data], true);
+			
+			// probleme d'encodage résolu
+			data = JSON.parse(data);
+			
 			this.UIManager.addScreen(data, true);
 			this.refreshProgress();
 			this.refreshScore();
