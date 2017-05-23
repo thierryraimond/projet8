@@ -15,31 +15,32 @@ function (
 		this.progress = {};
 		this.highScore = 0;
 		this.playerScore = 0;
-	}
+		this.status = {}; // statut de la connection au compte de l'utilisateur sous la forme jqXHR object
+	};
 
 
 	Account.prototype.init = function (UIManager) {
 		this.UIManager = UIManager;
-	}
+	};
 
 
 	/*
-	 * Permet de ce connecter ou créer un compte.
+	 * Permet de se connecter ou créer un compte.
 	 * @name Nom de compte
 	 * @password Mot de passe du compte
 	 * Return "AccountCreated" - Compte créer
-	 *		  "GoodPassword" - Connexion réussi
+	 *		  "GoodPassword" - Connexion réussie
 	 *		  "WrongPassword" - Mot de passe incorrect ou compte déjà existant
 	 */
 	Account.prototype.connect = function (name, password) {
 		this.name = name;
 		this.password = password;
-
+		this.status =
 		$.post(ServerConfig.host + "request.php", {
 			name: this.name,
 			password: this.password,
 			isRequest: false
-		}, function (data) {
+		}, function (data, textStatus, jqXHR) {
 			
 //			var screenList = {
 //				created: "AccountCreated",
@@ -53,13 +54,15 @@ function (
 //			this.UIManager.addScreen(screenList[data], true);
 			
 			// probleme d'encodage résolu
-			data = JSON.parse(data);
+//			data = JSON.parse(data);
+						
+			this.UIManager.addScreen(data.message, true);
 			
-			this.UIManager.addScreen(data, true);
 			this.refreshProgress();
 			this.refreshScore();
-		}.bind(this));
-	}
+
+		}.bind(this), 'json');
+	};
 
 
 	/**

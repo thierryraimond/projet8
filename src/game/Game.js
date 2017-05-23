@@ -40,11 +40,12 @@ function (
 		Debug.success("Game initialised.");
 
 		// Met la langue contenue dans le localstorage
+		// voir exemple : https://www.alsacreations.com/article/lire/1402-web-storage-localstorage-sessionstorage.html
 		var settings = JSON.parse(localStorage.getItem("settings"));
 		if (settings == null) settings = {};
 		if (typeof settings.language != "undefined") Config.language = settings.language;
 
-		$(document).tooltip(); // Active les tooltips
+		$(document).tooltip(); // Active les tooltips issus de "jquery-ui"
 		
 		PreLoad.init(function () {
 			SpriteLoader.init();

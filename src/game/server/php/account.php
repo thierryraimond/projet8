@@ -29,18 +29,27 @@ if (!$arr) {
 
 	$result =  SQLRequest($connexion, $request);
 //	echo "created";
- 	echo json_encode("AccountCreated");
+// 	echo json_encode("AccountCreated");
+ 	echo json_encode(array(
+ 			"message" => "AccountCreated"
+ 	));
 	die();
 } else {
 	if ($arr[0]['password'] == $password) {
 		if ($isRequest == "false") {
 //			echo "connected";
- 			echo json_encode("GoodPassword");
+//  		echo json_encode("GoodPassword");
+ 			echo json_encode(array(
+ 					"message" => "GoodPassword"
+ 			));
 			die();
 		}
 	} else {
 //		echo "wrongpassword";
- 		echo json_encode("WrongPassword");
+// 		echo json_encode("WrongPassword");
+ 		echo json_encode(array(
+ 				"message" => "WrongPassword"
+ 		));
 		die();
 	}
 }

@@ -24,10 +24,12 @@ requirejs.config ({
 		"pathfinding" : "libs/pathfinding-browser.min",
 		"stats" : "libs/debug/stats.min",
 		"datgui" : "libs/debug/dat.gui.min",
+		
 		// chargement de la bibliothèque jasmine
 		"jasmine" : "libs/jasmine-2.6.1/jasmine",
 		"jasmine-html" : "libs/jasmine-2.6.1/jasmine-html",
-		"jasmine-boot" : "libs/jasmine-2.6.1/boot"
+		"jasmine-boot" : "libs/jasmine-2.6.1/boot",
+		"mock-ajax" : "libs/jasmine-2.6.1/mock-ajax"
 	},
 	
 	// l'objet shim va permettre de spécifier les
@@ -66,16 +68,20 @@ requirejs.config ({
 	urlArgs : "d=" + Date.now()
 });
 
-
+// http://blog.kennethhansen.info/sharepoint-with-requirejs-and-jasmine-tests/
 define(['jasmine-boot'], function () {
-	require([
-//		'test/src/gameTest', 
-//		'test/src/my-library.specs.require',
-		'test/src/utils/ConfigTest'
-	], 
-	function(){
-		//trigger Jasmine
-	    window.onload();
+	require(['mock-ajax'], function() {
+		require([
+//			'test/src/gameTest', 
+//			'test/src/my-library.specs.require',
+			'test/src/game/GameTest',
+			'test/src/utils/ConfigTest',
+			'test/src/game/server/AccountTest'
+		], 
+		function(){
+			//trigger Jasmine
+		    window.onload();
+		});
 	});
 });
 
