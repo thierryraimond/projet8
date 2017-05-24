@@ -198,6 +198,10 @@
 			<source>. Your score : </source>
 			<target>. Ihr Ergebnis : </target>
 		</trans-unit>
+		<trans-unit id="LABEL_POPUP_ADVENTURESELECT_DESCTITLE">
+            <source>Choose your adventure</source>
+            <target>Wähle dein Abenteuer</target>
+        </trans-unit>
 	</body>
 	</file>
 </xliff>

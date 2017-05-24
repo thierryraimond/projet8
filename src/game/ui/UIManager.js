@@ -15,7 +15,8 @@ define([
 	"src/game/ui/AccountCreated",
 	"src/game/ui/NeedPasswordAndLogin",
 	"src/game/ui/HighScore",
-	"src/game/ui/Help"
+	"src/game/ui/Help",
+	"src/game/ui/AdventureSelect"
 ],
 function (
 	Config,
@@ -31,7 +32,8 @@ function (
 	AccountCreated,
 	NeedPasswordAndLogin,
 	HighScore,
-	Help
+	Help,
+	AdventureSelect
 ) {
 	var UIManager = function () {
 		

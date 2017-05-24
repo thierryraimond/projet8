@@ -194,6 +194,10 @@
 			<source>. Your score : </source>
 			<target>. Your score : </target>
 		</trans-unit>
+		<trans-unit id="LABEL_POPUP_ADVENTURESELECT_DESCTITLE">
+            <source>Choose your adventure</source>
+            <target>Choose your adventure</target>
+        </trans-unit>
 	</body>
 	</file>
 </xliff>
