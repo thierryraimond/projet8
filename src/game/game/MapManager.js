@@ -192,7 +192,7 @@ function (
 
 		var imageName = "";
 		var map = eval(name);
-		Config.mapSizeX = Math.sqrt(map.layers[0].data.length);
+		Config.mapSizeX = Math.sqrt(map.layers[0].data.length); // Math.sqrt = racine carré
 		Config.mapSizeY = Math.sqrt(map.layers[0].data.length);
 
 		$("#gameContainer").append("<div id='mapContainer'></div>")
@@ -298,7 +298,7 @@ function (
 
 
 	/**
-	 * Incremente le compteur d'action de player
+	 * Décremente le compteur d'action de player
 	 */
 	MapManager.prototype.actionDecrement = function () {
 		this.actionCount--;

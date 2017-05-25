@@ -75,7 +75,7 @@ function (
 
 
 	/**
-	 * Fait bouger le joueur si une touche directionnel est appué
+	 * Fait bouger le joueur si une touche directionnelle est appuyée
 	 */
 	Player.prototype.checkMovingInput = function () {
 		// Update controller
