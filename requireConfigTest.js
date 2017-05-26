@@ -76,6 +76,8 @@ define(['jasmine-boot'], function () {
 //			'test/src/my-library.specs.require',
 			'test/src/game/GameTest',
 			'test/src/utils/ConfigTest',
+			'test/src/utils/loader/SpriteLoaderTest',
+			'test/src/utils/loader/SoundLoaderTest',
 			'test/src/game/server/AccountTest'
 		], 
 		function(){

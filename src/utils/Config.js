@@ -12,8 +12,13 @@ function (
 		 * Information du jeu
 		 */
 		this.version = "1.0.0";
+		/* Réglage serveur local ou web */
 		this.local = true; // Si les requêtes se font en local ou vers le serveur web.
-		this.language = "fr";
+		this.localhost = 'http://localhost/oc/projet8/';
+		// var localhost = 'http://localhost/sokoban/localization/';
+		// var localhost = 'https://fbgame.isartdigital.com/sokoban/sokoban26/bin/localization/';
+		this.webhost = 'http://sokonyan.delfisakura.com/';
+		/* réglage de la langue à traduire */
 		this.availableLanguage = [
 			"de",
 			"en",
@@ -22,13 +27,12 @@ function (
 			"it",
 			"pl"
 		];
-
-		this.localhost = 'http://localhost/oc/projet8/';
-		// var localhost = 'http://localhost/sokoban/localization/';
-		// var localhost = 'https://fbgame.isartdigital.com/sokoban/sokoban26/bin/localization/';
+		this.language = this.DefineLanguage(JSON.parse(localStorage.getItem("settings"))); // définit la langue
 		var localization = 'bin/localization/';
-		this.webhost = 'http://sokonyan.delfisakura.com/';
 		this.xliffPath = this.local ? this.localhost+localization : this.webhost+localization ; // Chemin vers les fichiers de langues xliff
+		
+		this.tooltip = true; // Active/Desactive les tooltips issus de "jquery-ui"
+		if(this.tooltip) { $(document).tooltip(); }
 
 		/**
 		 * Reglage écran
@@ -74,6 +78,19 @@ function (
 		// Vitesse de translation d'une case à une autre
 		this.translationSpeed = 15;
 	}
+	
+	/**
+	 * Retourne la langue du localstorage cité en paramètre comprise dans le tableau this.availableLanguage
+	 * sinon retourne la langue par défaut 'fr'
+	 * 
+	 *  @params Object localStorage (objet natif)
+	 *  @returns String la langue comprise dans Array this.availableLanguage
+	 *  @link https://www.alsacreations.com/article/lire/1402-web-storage-localstorage-sessionstorage.html   
+	 */
+	Config.prototype.DefineLanguage = function (settings) { 
+		if (settings == null) settings = {};	
+		return (typeof settings.language != "undefined" && $.inArray(settings.language, this.availableLanguage) != -1) ? settings.language : 'fr' ;	
+	};
 
 
 	return new Config();

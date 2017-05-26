@@ -335,6 +335,7 @@ function (
 
 		this.totalToLoad = this.list.length;
 		this.currentLoaded = 0;
+
 	}
 
 
@@ -351,15 +352,15 @@ function (
 			}.bind(this);
 			SpriteManager.push(this.list[i].name, image);
 		}
-	}
+	};
 
 
 	/**
-	 * Return la progression du chargement des sons (0 à 1)
+	 * Return la progression du chargement des images (0 à 1)
 	 */
 	SpriteLoader.prototype.getProgress = function () {
 		return this.currentLoaded / this.totalToLoad;
-	}
+	};
 
 
 	return new SpriteLoader();

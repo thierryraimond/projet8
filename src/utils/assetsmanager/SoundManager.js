@@ -28,7 +28,7 @@ function (
 
 		this.list = [];
 		this.currentMusicInstance = null;
-	}
+	};
 
 
 	/*
@@ -70,7 +70,7 @@ function (
 		}
 
 		return instance;
-	}
+	};
 
 
 	/*
@@ -83,7 +83,7 @@ function (
 				break;
 			}
 		}
-	}
+	};
 
 
 	/*
@@ -93,7 +93,7 @@ function (
 		for (var i = 0; i < this.list.length; i++) {
 			this.list[i].instance.stop();
 		}
-	}
+	};
 
 
 	return new SoundManager();

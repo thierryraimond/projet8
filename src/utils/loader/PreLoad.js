@@ -2,14 +2,16 @@
  * Charge les images de l'écran de loading
  */
 define([
-	"src/utils/localization/txt"
+	"src/utils/localization/txt",
+	"src/utils/debug/Debug"
 ],
 function (
-	txt
+	txt,
+	Debug
 ) {
 	var PreLoad = function () {
 
-	}
+	};
 
 
 	/**
@@ -31,7 +33,6 @@ function (
 			new Image()
 		];
 
-
 		var loadingText = $("<div class='loadingText'>...</div>");
 		$('body').append(loadingText);
 
@@ -41,19 +42,18 @@ function (
 				this.list[i].onload = function () {
 					$('.loadingText').fontSpy({
 						onLoad: function () {
-							callback();
+							callback();						
 							$(loadingText).remove();
+							console.log("PreLoad initialised");
 						},
 						onFail: function () {
-							console.log("fail to load font")
+							console.log("fail to load font");
 						}
 					});
-				}
+				};
 			}
-		};
-
-
-	}
+		}
+	};
 
 	return new PreLoad();
 });

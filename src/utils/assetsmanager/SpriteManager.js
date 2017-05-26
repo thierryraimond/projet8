@@ -18,7 +18,7 @@ function (
 			name: name,
 			img: img
 		});
-	}
+	};
 
 
 	/**
@@ -30,7 +30,7 @@ function (
 				return this.list[i].img;
 			}
 		}
-	}
+	};
 
 
 	return new SpriteManager();
