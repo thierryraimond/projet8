@@ -2,12 +2,10 @@
  * Charge les images de l'écran de loading
  */
 define([
-	"src/utils/localization/txt",
-	"src/utils/debug/Debug"
+	"src/utils/localization/txt"
 ],
 function (
-	txt,
-	Debug
+	txt
 ) {
 	var PreLoad = function () {
 

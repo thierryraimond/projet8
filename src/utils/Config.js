@@ -31,7 +31,7 @@ function (
 		var localization = 'bin/localization/';
 		this.xliffPath = this.local ? this.localhost+localization : this.webhost+localization ; // Chemin vers les fichiers de langues xliff
 		
-		this.tooltip = true; // Active/Desactive les tooltips issus de "jquery-ui"
+		this.tooltip = false; // Active/Desactive les tooltips issus de "jquery-ui"
 		if(this.tooltip) { $(document).tooltip(); }
 
 		/**

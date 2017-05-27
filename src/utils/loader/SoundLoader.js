@@ -120,15 +120,37 @@ function (
 	SoundLoader.prototype.init = function () {
 		Debug.success("SoundLoader initialised.");
 		SoundManager.list = _.clone(this.list);
-		for (var i = 0; i < this.list.length; i ++) {
-			this.list[i].instance = new howler.Howl({
-				urls: [this.list[i].path],
+		
+		var that = this;
+		
+		// https://stackoverflow.com/questions/7434371/image-onload-function-with-return
+		// http://maxlab.fr/javascript/javascript-methodes-avancees/
+		function detect(that, i, callback) {
+			that.list[i].instance = new howler.Howl({
+				urls: [that.list[i].path],
 				onload: function () {
-					this.currentLoaded++;
-				}.bind(this)
+					callback(++that.currentLoaded, that.list[i].instance._loaded);
+				}.bind(that)
 			});
+		};
+		
+		for (var i = 0; i < this.list.length; i ++) {
+			detect(that, i, function(result, instance) {
+				console.log(result + ' ' + instance);
+			});	
+//			this.list[i].instance = new howler.Howl({
+//				urls: [this.list[i].path],
+//				onload: function () {
+//					this.currentLoaded++;
+//					alert(this.currentLoaded);
+//				}.bind(this)
+//			});
+			console.log(this.list[i].instance);
+			console.log(this.list[i].instance._loaded);
+			console.log(this.currentLoaded);
 		}
-	}
+
+	};
 
 
 	/**

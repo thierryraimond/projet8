@@ -338,19 +338,25 @@ function (
 
 	}
 
-
 	/**
 	 * Charge toutes les images puis les stock dans spriteManager
 	 */
 	SpriteLoader.prototype.init = function () {
 		Debug.success("SpriteLoader initialised.");
+		
 		for (var i = 0; i < this.list.length; i++) {
 			var image = new Image();
 			image.src = this.list[i].path;
-			image.onload = function () {
-				this.currentLoaded++;
-			}.bind(this);
+//			image.onload = function () { // événement : une fois le chargement de l'image terminé
+//				this.currentLoaded++;
+//			}.bind(this);
+			if (image.complete) this.currentLoaded++ ; // Si l'image est totalement chargée
 			SpriteManager.push(this.list[i].name, image);
+		}
+		if (this.currentLoaded === this.totalToLoad) {
+			Debug.success("SpriteLoader completed.");
+		} else {
+			Debug.error("SpriteLoader incompleted.");
 		}
 	};
 
