@@ -29,7 +29,7 @@ function (
 
 
 	/**
-	 * Appellé au moment ou une touche est pressé, cela met l'état de la touche correspondant à 1
+	 * Appelé au moment ou une touche est pressé, cela met l'état de la touche correspondante à 1
 	 */
 	Keyboard.prototype.keyDown = function (e) {
 		this.changeKeyState(e.keyCode, 1);
@@ -37,7 +37,7 @@ function (
 
 
 	/**
-	 * Appellé au moment ou une touche est pressé, cela met l'état de la touche correspondant à 0
+	 * Appellé au moment ou une touche est pressé, cela met l'état de la touche correspondante à 0
 	 */
 	Keyboard.prototype.keyUp = function (e) {
 		this.changeKeyState(e.keyCode, 0);
@@ -45,7 +45,7 @@ function (
 
 
 	/**
-	 * Change le statu d'une touche (Appuyé ou non)
+	 * Change le statut d'une touche (Appuyé ou non)
 	 */
 	Keyboard.prototype.changeKeyState = function (keyCode, state) {
 		switch(keyCode) {

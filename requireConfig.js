@@ -22,7 +22,7 @@ requirejs.config ({
 		"howler" : "libs/howler.min",
 		"underscore" : "libs/underscore-min",
 		"pathfinding" : "libs/pathfinding-browser.min",
-		"stats" : "libs/debug/stats.min",
+//		"stats" : "libs/debug/stats.min",
 		"datgui" : "libs/debug/dat.gui.min"
 	},
 	
@@ -46,9 +46,9 @@ requirejs.config ({
 		"pathfinding" : {
 			exports : "PF"
 		},
-		"stats" : {
-			exports : "Stats"
-		},
+//		"stats" : {
+//			exports : "Stats"
+//		},
 		"datgui" : {
 			exports : "dat.gui"
 		}

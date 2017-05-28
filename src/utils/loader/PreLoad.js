@@ -16,6 +16,7 @@ function (
 	 * Initialise les images de l'écran de loading, une fois fini, execute le callback.
 	 */
 	PreLoad.prototype.init = function (callback) {
+		
 		this.baseFolder = "assets/img/";
 		txt.init();
 
@@ -39,10 +40,9 @@ function (
 			if (i == this.list.length - 1) {
 				this.list[i].onload = function () {
 					$('.loadingText').fontSpy({
-						onLoad: function () {
+						onLoad: function () {							
 							callback();						
 							$(loadingText).remove();
-							console.log("PreLoad initialised");
 						},
 						onFail: function () {
 							console.log("fail to load font");

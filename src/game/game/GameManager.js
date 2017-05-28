@@ -5,7 +5,7 @@ define([
 	"jquery",
 	"underscore",
 	"src/utils/debug/Debug",
-	"src/utils/debug/Stats",
+//	"src/utils/debug/Stats",
 	"src/utils/game/Time",
 	"src/utils/display/GameContainer",
 	"src/utils/assetsmanager/AnimationManager",
@@ -18,13 +18,14 @@ define([
 	"src/game/game/MapManager",
 	"src/game/game/box/BoxManager",
 	"src/game/game/Pathfinding",
-	"src/game/server/Account"
+	"src/game/server/Account",
+	"src/utils/Config"
 ],
 function (
 	$,
 	_,
 	Debug,
-	Stats,
+//	Stats,
 	Time,
 	GameContainer,
 	AnimationManager,
@@ -37,7 +38,8 @@ function (
 	MapManager,
 	BoxManager,
 	Pathfinding,
-	Account
+	Account,
+	Config
 ) {
 	var GameManager = function () {
 		
@@ -49,7 +51,7 @@ function (
 	 */
 	GameManager.prototype.init = function () {
 		Debug.success("GameManager initialised.");
-		Stats.init();
+//		Stats.init();
 		GameContainer.init();
 		UIManager.init();
 		Pathfinding.init();
@@ -106,13 +108,13 @@ function (
 	 * Gameloop principal du jeu
 	 */
 	function gameloop () {
-		Stats.begin();
+//		Stats.begin();
 		Time.updatedt();
 		update();
 		collider();
 		animate();
 		render();
-		Stats.end();
+//		Stats.end();
 		window.requestAnimationFrame(gameloop);
 	}
 

@@ -18,7 +18,7 @@ function (
 
 
 	/**
-	 * Initialise le Canvas et met sa taille en fonction de la taille stocké dans le fichier config ou full screen
+	 * Initialise le Canvas et met sa taille en fonction de la taille stockée dans le fichier config ou full screen
 	 */
 	GameContainer.prototype.init = function () {
 		Debug.success("GameContainer inisitalised.");

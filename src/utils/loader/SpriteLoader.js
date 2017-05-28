@@ -344,20 +344,26 @@ function (
 	SpriteLoader.prototype.init = function () {
 		Debug.success("SpriteLoader initialised.");
 		
+		var debut = new Date(); // temps du début du chargement
+		
 		for (var i = 0; i < this.list.length; i++) {
 			var image = new Image();
 			image.src = this.list[i].path;
-//			image.onload = function () { // événement : une fois le chargement de l'image terminé
-//				this.currentLoaded++;
-//			}.bind(this);
-			if (image.complete) this.currentLoaded++ ; // Si l'image est totalement chargée
+			image.onload = function () { // événement : une fois le chargement de l'image terminé
+				this.currentLoaded++;
+				if (this.currentLoaded === this.totalToLoad) {
+					var fin = new Date(); // temps de fin du chargement
+					Debug.success("SpriteLoader Completed, time: " + (fin.getTime()-debut.getTime()) + " ms.");
+				}
+			}.bind(this);
+//			if (image.complete) this.currentLoaded++ ; // Si l'image est totalement chargée
 			SpriteManager.push(this.list[i].name, image);
 		}
-		if (this.currentLoaded === this.totalToLoad) {
-			Debug.success("SpriteLoader completed.");
-		} else {
-			Debug.error("SpriteLoader incompleted.");
-		}
+//		if (this.currentLoaded === this.totalToLoad) {
+//			Debug.success("SpriteLoader completed.");
+//		} else {
+//			Debug.error("SpriteLoader incompleted.");
+//		}
 	};
 
 

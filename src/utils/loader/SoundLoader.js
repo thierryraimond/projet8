@@ -121,35 +121,46 @@ function (
 		Debug.success("SoundLoader initialised.");
 		SoundManager.list = _.clone(this.list);
 		
-		var that = this;
+//		var that = this;
+//		
+//		// https://stackoverflow.com/questions/7434371/image-onload-function-with-return
+//		// http://maxlab.fr/javascript/javascript-methodes-avancees/
+//		function detect(that, i, callback) {
+//			that.list[i].instance = new howler.Howl({
+//				urls: [that.list[i].path],
+//				onload: function () {
+//					callback(++that.currentLoaded, that.list[i].instance._loaded);
+//				}.bind(that)
+//			});
+//		};
 		
-		// https://stackoverflow.com/questions/7434371/image-onload-function-with-return
-		// http://maxlab.fr/javascript/javascript-methodes-avancees/
-		function detect(that, i, callback) {
-			that.list[i].instance = new howler.Howl({
-				urls: [that.list[i].path],
-				onload: function () {
-					callback(++that.currentLoaded, that.list[i].instance._loaded);
-				}.bind(that)
-			});
-		};
+		var debut = new Date(); // temps du début du chargement
 		
 		for (var i = 0; i < this.list.length; i ++) {
-			detect(that, i, function(result, instance) {
-				console.log(result + ' ' + instance);
-			});	
-//			this.list[i].instance = new howler.Howl({
-//				urls: [this.list[i].path],
-//				onload: function () {
-//					this.currentLoaded++;
-//					alert(this.currentLoaded);
-//				}.bind(this)
-//			});
-			console.log(this.list[i].instance);
-			console.log(this.list[i].instance._loaded);
-			console.log(this.currentLoaded);
-		}
+//			detect(that, i, function(result, instance) {
+//				console.log(result + ' ' + instance);
+//			});	
+			this.list[i].instance = new howler.Howl({
+				urls: [this.list[i].path],
+				onload: function () {
+					this.currentLoaded++;
+					if(this.currentLoaded === this.totalToLoad) {
+						var fin = new Date(); // temps de fin du chargement
+						Debug.success("SoundLoader Completed, time: " + (fin.getTime()-debut.getTime()) + " ms.");
+					}
+				}.bind(this)
+			});
+//			console.log(this.list[i].instance);
+//			console.log(this.list[i].instance._loaded);
+//			console.log(this.currentLoaded);
+//			if (this.list[i].instance._loaded) this.currentLoaded++; 
+		}		
 
+//	    setTimeout(function() {
+//	    	console.log(this.currentLoaded);
+//	    }.bind(this), 1000);
+	    
+	    
 	};
 
 

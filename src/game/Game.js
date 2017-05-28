@@ -39,7 +39,7 @@ function (
 	Game.prototype.init = function () {
 		Debug.success("Game initialised.");
 		
-		PreLoad.init(function () {
+		PreLoad.init(function () {			
 			SpriteLoader.init(); 
 			SoundLoader.init();
 			GameManager.init();
