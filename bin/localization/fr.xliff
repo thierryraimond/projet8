@@ -202,6 +202,10 @@
             <source>Choose your adventure</source>
             <target>Choisissez une aventure</target>
         </trans-unit>
+        <trans-unit id="LABEL_MENU_DECONNEXION">
+            <source>Log out</source>
+            <target>Se déconnecter</target>
+        </trans-unit>
 	</body>		
 	</file>
 </xliff>

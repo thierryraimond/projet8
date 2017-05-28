@@ -201,7 +201,11 @@
         <trans-unit id="LABEL_POPUP_ADVENTURESELECT_DESCTITLE">
             <source>Choose your adventure</source>
             <target>Elige tu aventura</target>
-        </trans-unit>		
+        </trans-unit>	
+        <trans-unit id="LABEL_MENU_DECONNEXION">
+            <source>Log out</source>
+            <target>cerrar sesión</target>
+        </trans-unit>	
 	</body>
 	</file>
 </xliff>

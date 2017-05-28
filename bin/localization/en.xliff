@@ -198,6 +198,10 @@
             <source>Choose your adventure</source>
             <target>Choose your adventure</target>
         </trans-unit>
+        <trans-unit id="LABEL_MENU_DECONNEXION">
+            <source>Log out</source>
+            <target>Log out</target>
+        </trans-unit>
 	</body>
 	</file>
 </xliff>

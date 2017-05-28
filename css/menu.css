@@ -56,3 +56,6 @@
 #unlockInfo {
     top : 190px;
 }
+
+.menuInfo #deconnexion { text-decoration: underline; }
+.menuInfo a:hover { color: white!important; }

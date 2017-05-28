@@ -29,7 +29,7 @@ function (
 		$("#screenContainer").append("<div id='Menu'></div>");
 		$("#Menu").append("<div class='menuBackground'></div>");
 
-		$("#Menu").append("<div id='menuInfo' class='menuInfo'>" + txt.get("LABEL_MENU_INFOACCOUNT") + Account.name + "</div>");
+		$("#Menu").append("<div id='menuInfo' class='menuInfo'><span>" + txt.get("LABEL_MENU_INFOACCOUNT") + Account.name + "</span><br/><a id='deconnexion'>"+txt.get("LABEL_MENU_DECONNEXION")+"</a></div>");
 		$("#menuInfo").hide();
 		
 //		var buttonList = ["LevelSelectBtn", "HighScoreBtn", "OptionsBtn", "HelpBtn", "AboutBtn"];
@@ -85,7 +85,14 @@ function (
 					SoundManager.play("meow14");
 				}
 			})(i));
-		};
+		}
+		
+		//click sur deconnexion
+		$('.menuInfo #deconnexion').on('click', function(){
+			UIManager.addScreen('Login', true);
+			UIManager.closeScreen("Menu", true);
+			SoundManager.play("meow13");
+		});
 	}
 
 
