@@ -84,7 +84,7 @@ function (
 	}
 
 	/**
-	 * Bouge la caisse dans la direction donné.
+	 * Bouge la caisse dans la direction donnée.
 	 * @return true si la caisse a bougé sinon false
 	 */
 	Box.prototype.move = function (dir) {

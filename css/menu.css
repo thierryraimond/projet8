@@ -57,5 +57,8 @@
     top : 190px;
 }
 
-.menuInfo #deconnexion { text-decoration: underline; }
+.menuInfo #deconnexion { 
+	text-decoration: underline;
+	cursor: pointer; 
+}
 .menuInfo a:hover { color: white!important; }

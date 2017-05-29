@@ -91,7 +91,7 @@ function (
 		$('.menuInfo #deconnexion').on('click', function(){
 			UIManager.addScreen('Login', true);
 			UIManager.closeScreen("Menu", true);
-			SoundManager.play("meow13");
+			SoundManager.play("meow" + Math.floor(Math.random() * 15));
 		});
 	}
 
