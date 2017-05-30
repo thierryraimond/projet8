@@ -342,7 +342,7 @@ function (
 	 * Charge toutes les images puis les stock dans spriteManager
 	 */
 	SpriteLoader.prototype.init = function () {
-		Debug.success("SpriteLoader initialised.");
+		Debug.success("SpriteLoader initialised.");			
 		
 		var debut = new Date(); // temps du début du chargement
 		
@@ -350,6 +350,7 @@ function (
 			var image = new Image();
 			image.src = this.list[i].path;
 			image.onload = function () { // événement : une fois le chargement de l'image terminé
+
 				this.currentLoaded++;
 				if (this.currentLoaded === this.totalToLoad) {
 					var fin = new Date(); // temps de fin du chargement
@@ -364,6 +365,8 @@ function (
 //		} else {
 //			Debug.error("SpriteLoader incompleted.");
 //		}
+		
+		
 	};
 
 
