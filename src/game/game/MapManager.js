@@ -253,13 +253,15 @@ function (
 			}
 
 			$('#mapContainer').append('<div id="tile' + i + '" class="' + imageName + ' tile"></div>');
-			if (Config.spriteSheet) {
-				$('#tile' + i).css("background-image", "url(" + SpriteManager.getObj(imageName).img.src + ")")
-					.css('background-size', SpriteManager.getObj(imageName).backgroundSize)
-					.css('background-position', SpriteManager.getObj(imageName).position);
-			} else {
-				$('#tile' + i).css("background-image", "url(" + SpriteManager.get(imageName).src + ")");
-			}
+//			if (Config.spriteSheet) {
+//				$('#tile' + i).css("background-image", "url(" + SpriteManager.getObj(imageName).img.src + ")")
+//					.css('background-size', SpriteManager.getObj(imageName).backgroundSize)
+//					.css('background-position', SpriteManager.getObj(imageName).position);
+//			} else {
+//				$('#tile' + i).css("background-image", "url(" + SpriteManager.get(imageName).src + ")");
+//			}
+			$('#tile' + i).css("background-image", "url(" + SpriteManager.get(imageName).src + ")");
+			
 			$('#tile' + i).css("left", Config.mapWidth * (i % Config.mapSizeX))
 						  .css("top", Config.mapHeight * Math.floor(i / Config.mapSizeY))
 						  .css("width", Config.mapWidth)

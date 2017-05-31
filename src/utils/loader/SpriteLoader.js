@@ -17,15 +17,15 @@ function (
 		this.baseFolder = "assets/img/"
 			
 		this.spriteSheet = [
-			{
-				name: "tilesClassic",
-				path: this.baseFolder + "/sprite/game/newTileSet.png",
-				tilewidth: 100,
-				tileheight: 100,
-				imagewidth: 700,
-				imageheight: 400,
-				backgroundSize: "700% 400%" 
-			},
+//			{
+//				name: "tilesClassic",
+//				path: this.baseFolder + "/sprite/game/newTileSet.png",
+//				tilewidth: 100,
+//				tileheight: 100,
+//				imagewidth: 700,
+//				imageheight: 400,
+//				backgroundSize: "700% 400%" 
+//			},
 			{
 				name: "flagSpriteSheet",
 				path: this.baseFolder + "/spriteSheet/flagSpriteSheet.png",
@@ -52,44 +52,51 @@ function (
 			{
 				name: "void",
 				path: this.baseFolder + "sprite/game/tiles/void.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "100% 100%"
 			},
 			// Floor de differentes couleurs :
 			{
 				name: "floorRed",
 				path: this.baseFolder + "sprite/game/tiles/floorRed.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "0 0"
 			},
 			{
 				name: "floorOrange",
 				path: this.baseFolder + "sprite/game/tiles/floorOrange.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "16.67% 0"
 			},
 			{
 				name: "floorYellow",
 				path: this.baseFolder + "sprite/game/tiles/floorYellow.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "33.33% 0"
 			},
 			{
 				name: "floorGreen",
 				path: this.baseFolder + "sprite/game/tiles/floorGreen.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "50% 0"
 			},
 			{
 				name: "floorBlue",
 				path: this.baseFolder + "sprite/game/tiles/floorBlue.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "66.67% 0"
 			},
 			{
 				name: "floorPurple",
 				path: this.baseFolder + "sprite/game/tiles/floorPurple.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "83.33% 0"
 			},
 
@@ -104,7 +111,8 @@ function (
 			{
 				name: "goal",
 				path: this.baseFolder + "sprite/game/tiles/goal.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "0 33.33%"
 			},
 			{
@@ -119,75 +127,87 @@ function (
 			{
 				name: "sideIntNO",
 				path: this.baseFolder + "sprite/game/tiles/sideIntNO.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "16.67% 33.33%"
 			},
 			{
 				name: "sideIntNE",
 				path: this.baseFolder + "sprite/game/tiles/sideIntNE.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "33.33% 33.33%"
 			},
 			{
 				name: "sideIntSO",
 				path: this.baseFolder + "sprite/game/tiles/sideIntSO.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "50% 33.33%"
 			},
 			{
 				name: "sideIntSE",
 				path: this.baseFolder + "sprite/game/tiles/sideIntSE.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "66.67% 33.33%"
 			},
 			//
 			{
 				name: "sideLineS",
 				path: this.baseFolder + "sprite/game/tiles/sideLineS.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "83.33% 33.33%"
 			},
 			{
 				name: "sideLineN",
 				path: this.baseFolder + "sprite/game/tiles/sideLineN.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "100% 33.33%"
 			},
 			{
 				name: "sideLineO",
 				path: this.baseFolder + "sprite/game/tiles/sideLineO.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "0 66.67%"
 			},
 			{
 				name: "sideLineE",
 				path: this.baseFolder + "sprite/game/tiles/sideLineE.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "16.67% 66.67%"
 			},
 			//
 			{
 				name: "sideExtNO",
 				path: this.baseFolder + "sprite/game/tiles/sideExtNO.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "33.33% 66.67%"
 			},
 			{
 				name: "sideExtNE",
 				path: this.baseFolder + "sprite/game/tiles/sideExtNE.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "50% 66.67%"
 			},
 			{
 				name: "sideExtSO",
 				path: this.baseFolder + "sprite/game/tiles/sideExtSO.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "66.67% 66.67%"
 			},
 			{
 				name: "sideExtSE",
 				path: this.baseFolder + "sprite/game/tiles/sideExtSE.png",
-				spriteSheetName: "tilesClassic",
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
 				position: "83.33% 66.67%"
 			},
 

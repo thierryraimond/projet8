@@ -37,7 +37,7 @@ function (
 		/**
 		 * Préchargement des sprites
 		 */
-		this.spriteSheet = false; // Active spriteSheet (gain de peformance) sinon charge les images comme à l'origine  
+		this.spriteSheet = true; // Active spriteSheet (gain de peformance) sinon charge les images comme à l'origine  
 
 		/**
 		 * Reglage écran
