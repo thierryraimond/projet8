@@ -112,7 +112,13 @@ function (
 
 			$("#btnLevel" + i).css("margin-left", (i - 1) % 5 * 100);
 			$("#btnLevel" + i).css("margin-top", Math.floor((i - 1) / 5) * 70);
-			$("#btnLevel" + i).css("background-image", "url(" + SpriteManager.get(btnStatic).src + ")");
+			if(Config.spriteSheet) {
+				$("#btnLevel" + i).css("background-image", "url(" + SpriteManager.getObj(btnStatic).img.src + ")")
+					.css('background-size', SpriteManager.getObj(btnStatic).backgroundSize)
+					.css('background-position', SpriteManager.getObj(btnStatic).position);
+			} else {
+				$("#btnLevel" + i).css("background-image", "url(" + SpriteManager.get(btnStatic).src + ")");
+			}
 
 			// Star append
 			if (isUnlocked) {
@@ -143,7 +149,13 @@ function (
 			$( "#btnLevel" + i).hover(
 			(function(btnSurvol, isUnlocked) {
 				return function () {
-					$( this ).css("background-image", "url(" + SpriteManager.get(btnSurvol).src + ")");
+					if(Config.spriteSheet) {
+						$(this).css("background-image", "url(" + SpriteManager.getObj(btnSurvol).img.src + ")")
+							.css('background-size', SpriteManager.getObj(btnSurvol).backgroundSize)
+							.css('background-position', SpriteManager.getObj(btnSurvol).position);
+					} else {
+						$( this ).css("background-image", "url(" + SpriteManager.get(btnSurvol).src + ")");
+					}
 					$("#btnLevel" + i).css("background-repeat", "no-repeat");
 					if (isUnlocked) {
 						$(this).effect("bounce", { distance: 5, times: 2 }, "fast");
@@ -153,14 +165,26 @@ function (
 			})(btnSurvol, isUnlocked),
 			(function(btnStatic) {
 				return function () {
-					$( this ).css("background-image", "url(" + SpriteManager.get(btnStatic).src + ")");
+					if(Config.spriteSheet) {
+						$(this).css("background-image", "url(" + SpriteManager.getObj(btnStatic).img.src + ")")
+							.css('background-size', SpriteManager.getObj(btnStatic).backgroundSize)
+							.css('background-position', SpriteManager.getObj(btnStatic).position);
+					} else {
+						$( this ).css("background-image", "url(" + SpriteManager.get(btnStatic).src + ")");
+					}
 				}
 			})(btnStatic));
 
 			// Active
 			$( "#btnLevel" + i).mousedown((function(id, btnPress, isUnlocked) {
 				return function () {
-					$(this).css("background-image", "url(" + SpriteManager.get(btnPress).src + ")")
+					if(Config.spriteSheet) {
+						$(this).css("background-image", "url(" + SpriteManager.getObj(btnPress).img.src + ")")
+							.css('background-size', SpriteManager.getObj(btnPress).backgroundSize)
+							.css('background-position', SpriteManager.getObj(btnPress).position);
+					} else {
+						$(this).css("background-image", "url(" + SpriteManager.get(btnPress).src + ")")
+					}
 					if (isUnlocked) {
 						$(this).css("padding-top", 5);
 					}
@@ -171,8 +195,14 @@ function (
 
 			$("#btnLevel" + i).mouseup((function(id, btnStatic, mouseUpSound) {
 				return function () {
-					$(this).css("background-image", "url(" + SpriteManager.get(btnStatic).src + ")")
-							.css("padding-top", 0);
+					if(Config.spriteSheet) {
+						$(this).css("background-image", "url(" + SpriteManager.getObj(btnStatic).img.src + ")")
+							.css('background-size', SpriteManager.getObj(btnStatic).backgroundSize)
+							.css('background-position', SpriteManager.getObj(btnStatic).position);
+					} else {
+						$(this).css("background-image", "url(" + SpriteManager.get(btnStatic).src + ")");
+					}
+					$(this).css("padding-top", 0);
 					$("#star" + id + 1).css("top", "5px")
 					$("#star" + id + 2).css("top", "5px")
 

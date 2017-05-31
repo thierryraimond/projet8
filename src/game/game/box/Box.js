@@ -134,7 +134,8 @@ function (
 
 			this.idleSprite = SpriteManager.get("box").src;
 			if (nextCellValue == this.MapManager.cell.goal) this.idleSprite = SpriteManager.get("boxOnGoal").src;
-			$("#box" + this.id).css("background-image", "url(" + this.idleSprite + ")")
+			$("#box" + this.id).css("background-image", "url(" + this.idleSprite + ")");
+
 			
 			this.position.x += xOffset;
 			this.position.y += yOffset;

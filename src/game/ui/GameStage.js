@@ -5,13 +5,15 @@ define([
 	"src/utils/assetsmanager/SpriteManager",
 	"src/utils/assetsmanager/SoundManager",
 	"src/utils/localization/txt",
-	"src/game/game/MapManager"
+	"src/game/game/MapManager",
+	"src/utils/Config"
 ],
 function (
 	SpriteManager,
 	SoundManager,
 	txt,
-	MapManager
+	MapManager,
+	Config
 ) {
 	var GameStage = function () {
 
@@ -94,33 +96,63 @@ function (
 				}
 			})(i), i * 100)
 
-			$("#menuContainer #" + buttonList[i]).css("background-image", "url(" + SpriteManager.get(buttonList[i] + "Static").src + ")");
+			if(Config.spriteSheet){
+				$("#menuContainer #" + buttonList[i]).css("background-image", "url(" + SpriteManager.getObj(buttonList[i] + "Static").img.src + ")")
+					.css('background-size', SpriteManager.getObj(buttonList[i] + "Static").backgroundSize)
+					.css('background-position', SpriteManager.getObj(buttonList[i] + "Static").position);
+			} else {
+				$("#menuContainer #" + buttonList[i]).css("background-image", "url(" + SpriteManager.get(buttonList[i] + "Static").src + ")");
+			}
 			$("#menuContainer #" + buttonList[i]).css("background-repeat", "no-repeat");
 
 			// Hover
 			$("#menuContainer #" + buttonList[i]).hover((function(id) {
 				return function () {
 					console.log(buttonList[id] + "Hover");
-					$( this ).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Hover").src + ")");
+					if (Config.spriteSheet) {
+						$( this ).css("background-image", "url(" + SpriteManager.getObj(buttonList[id] + "Hover").img.src + ")")
+							.css('background-size', SpriteManager.getObj(buttonList[id] + "Hover").backgroundSize)
+							.css('background-position', SpriteManager.getObj(buttonList[id] + "Hover").position);
+					} else { 
+						$( this ).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Hover").src + ")");
+					}
 					SoundManager.play("buttonHover");
 				}
 			})(i), (function(id) {
 				return function () {
-					$( this ).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Static").src + ")");
+					if (Config.spriteSheet) {
+						$( this ).css("background-image", "url(" + SpriteManager.getObj(buttonList[id] + "Static").img.src + ")")
+							.css('background-size', SpriteManager.getObj(buttonList[id] + "Static").backgroundSize)
+							.css('background-position', SpriteManager.getObj(buttonList[id] + "Static").position);
+					} else {
+						$( this ).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Static").src + ")");
+					}
 				}
 			}(i)));
 
 			// Active
 			$("#menuContainer #" + buttonList[i]).mousedown((function(id) {
 				return function () {
-					$("#menuContainer #" + buttonList[id]).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Active").src + ")");
+					if (Config.spritesheet) {
+						$("#menuContainer #" + buttonList[id]).css("background-image", "url(" + SpriteManager.getObj(buttonList[id] + "Active").img.src + ")")
+							.css('background-size', SpriteManager.getObj(buttonList[id] + "Active").backgroundSize)
+							.css('background-position', SpriteManager.getObj(buttonList[id] + "Active").position);
+					} else {
+						$("#menuContainer #" + buttonList[id]).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Active").src + ")");
+					}
 					$("#menuContainer #" + buttonList[id]).css("padding-top", 3);
 				}
 			})(i));
 
 			$("#menuContainer #" + buttonList[i]).mouseup((function(id) {
 				return function () {
-					$("#menuContainer #" + buttonList[id]).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Static").src + ")");
+					if (Config.spritesheet) {
+						$("#menuContainer #" + buttonList[id]).css("background-image", "url(" + SpriteManager.getObj(buttonList[id] + "Static").img.src + ")")
+							.css('background-size', SpriteManager.getObj(buttonList[id] + "Static").backgroundSize)
+							.css('background-position', SpriteManager.getObj(buttonList[id] + "Static").position);
+					} else {
+						$("#menuContainer #" + buttonList[id]).css("background-image", "url(" + SpriteManager.get(buttonList[id] + "Static").src + ")");
+					}
 					$("#menuContainer #" + buttonList[id]).css("padding-top", 0);
 					if (buttonList[id] == "MenuBtn") {
 						UIManager.closeScreen("GameStage", false);

@@ -17,15 +17,15 @@ function (
 		this.baseFolder = "assets/img/"
 			
 		this.spriteSheet = [
-//			{
-//				name: "tilesClassic",
-//				path: this.baseFolder + "/sprite/game/newTileSet.png",
-//				tilewidth: 100,
-//				tileheight: 100,
-//				imagewidth: 700,
-//				imageheight: 400,
-//				backgroundSize: "700% 400%" 
-//			},
+			{
+				name: "tilesClassic",
+				path: this.baseFolder + "/sprite/game/newTileSet.png",
+				tilewidth: 100,
+				tileheight: 100,
+				imagewidth: 700,
+				imageheight: 400,
+				backgroundSize: "700% 400%" 
+			},
 			{
 				name: "flagSpriteSheet",
 				path: this.baseFolder + "/spriteSheet/flagSpriteSheet.png",
@@ -34,6 +34,15 @@ function (
 				imagewidth: 960,
 				imageheight: 90,
 				backgroundSize: "1200% 100%"
+			},
+			{
+				name: "btnSpriteSheet",
+				path: this.baseFolder + "/spriteSheet/btnSpriteSheet.png",
+				tilewidth: 87,
+				tileheight: 66,
+				imagewidth: 261,
+				imageheight: 528,
+				backgroundSize: "300% 800%"
 			}
 		];		
 		
@@ -43,119 +52,143 @@ function (
 			{
 				name: "void",
 				path: this.baseFolder + "sprite/game/tiles/void.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "100% 100%"
 			},
 			// Floor de differentes couleurs :
 			{
 				name: "floorRed",
 				path: this.baseFolder + "sprite/game/tiles/floorRed.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "0 0"
 			},
 			{
 				name: "floorOrange",
 				path: this.baseFolder + "sprite/game/tiles/floorOrange.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "16.67% 0"
 			},
 			{
 				name: "floorYellow",
 				path: this.baseFolder + "sprite/game/tiles/floorYellow.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "33.33% 0"
 			},
 			{
 				name: "floorGreen",
 				path: this.baseFolder + "sprite/game/tiles/floorGreen.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "50% 0"
 			},
 			{
 				name: "floorBlue",
 				path: this.baseFolder + "sprite/game/tiles/floorBlue.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "66.67% 0"
 			},
 			{
 				name: "floorPurple",
 				path: this.baseFolder + "sprite/game/tiles/floorPurple.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "83.33% 0"
 			},
 
 			// Elements :
 			{
 				name: "wall",
 				path: this.baseFolder + "sprite/game/tiles/wall.png",
-				spriteSheetName: "tilesClassic"
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
+				position: "100% 0"
 			},
 			{
 				name: "goal",
 				path: this.baseFolder + "sprite/game/tiles/goal.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "0 33.33%"
 			},
 			{
 				name: "box",
 				path: this.baseFolder + "sprite/game/tiles/box.png",
-				spriteSheetName: "tilesClassic"
+//				spriteSheetName: "tilesClassic",
+				spriteSheetName: "",
+				position: "100% 66.67%"
 			},
-
+			
 			// Bord du jeu
 			{
 				name: "sideIntNO",
 				path: this.baseFolder + "sprite/game/tiles/sideIntNO.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "16.67% 33.33%"
 			},
 			{
 				name: "sideIntNE",
 				path: this.baseFolder + "sprite/game/tiles/sideIntNE.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "33.33% 33.33%"
 			},
 			{
 				name: "sideIntSO",
 				path: this.baseFolder + "sprite/game/tiles/sideIntSO.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "50% 33.33%"
 			},
 			{
 				name: "sideIntSE",
 				path: this.baseFolder + "sprite/game/tiles/sideIntSE.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "66.67% 33.33%"
 			},
 			//
 			{
 				name: "sideLineS",
 				path: this.baseFolder + "sprite/game/tiles/sideLineS.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "83.33% 33.33%"
 			},
 			{
 				name: "sideLineN",
 				path: this.baseFolder + "sprite/game/tiles/sideLineN.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "100% 33.33%"
 			},
 			{
 				name: "sideLineO",
 				path: this.baseFolder + "sprite/game/tiles/sideLineO.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "0 66.67%"
 			},
 			{
 				name: "sideLineE",
 				path: this.baseFolder + "sprite/game/tiles/sideLineE.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "16.67% 66.67%"
 			},
 			//
 			{
 				name: "sideExtNO",
 				path: this.baseFolder + "sprite/game/tiles/sideExtNO.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "33.33% 66.67%"
 			},
 			{
 				name: "sideExtNE",
 				path: this.baseFolder + "sprite/game/tiles/sideExtNE.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "50% 66.67%"
 			},
 			{
 				name: "sideExtSO",
 				path: this.baseFolder + "sprite/game/tiles/sideExtSO.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "66.67% 66.67%"
 			},
 			{
 				name: "sideExtSE",
 				path: this.baseFolder + "sprite/game/tiles/sideExtSE.png",
-				spriteSheetName: "tilesClassic"
+				spriteSheetName: "tilesClassic",
+				position: "83.33% 66.67%"
 			},
 
 			// Elements
@@ -310,17 +343,20 @@ function (
 			{
 				name: "btnLevelStatic",
 				path: this.baseFolder + "sprite/ui/levelSelect/btnLevelStatic.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 85.71%"
 			},
 			{
 				name: "btnLevelSurvol",
 				path: this.baseFolder + "sprite/ui/levelSelect/btnLevelSurvol.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "100% 85.71%"
 			},
 			{
 				name: "btnLevelPress",
 				path: this.baseFolder + "sprite/ui/levelSelect/btnLevelPress.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "50% 85.71%"
 			},
 			{
 				name: "star",
@@ -335,7 +371,8 @@ function (
 			{
 				name: "btnLock",
 				path: this.baseFolder + "sprite/ui/levelSelect/btnLock.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 100%"
 			},
 			{
 				name: "GameStageBackground",
@@ -355,93 +392,112 @@ function (
 			{
 				name: "HelpBtnActive",
 				path: this.baseFolder + "sprite/game/btnHelpActive.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "50% 0"
 			},
 			{
 				name: "HelpBtnHover",
 				path: this.baseFolder + "sprite/game/btnHelpHover.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "100% 0"
 			},
 			{
 				name: "HelpBtnStatic",
 				path: this.baseFolder + "sprite/game/btnHelpStatic.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 0"
 			},
 			{
 				name: "MenuBtnActive",
 				path: this.baseFolder + "sprite/game/btnHomeActive.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "50% 14.29%"
 			},
 			{
 				name: "MenuBtnHover",
 				path: this.baseFolder + "sprite/game/btnHomeHover.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "100% 14.29%"
 			},
 			{
 				name: "MenuBtnStatic",
 				path: this.baseFolder + "sprite/game/btnHomeStatic.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 14.29%"
 			},
 			{
 				name: "RedoBtnActive",
 				path: this.baseFolder + "sprite/game/btnRedoActive.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "50% 28.57%"
 			},
 			{
 				name: "RedoBtnHover",
 				path: this.baseFolder + "sprite/game/btnRedoHover.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "100% 28.57%"
 			},
 			{
 				name: "RedoBtnStatic",
 				path: this.baseFolder + "sprite/game/btnRedoStatic.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 28.57%"
 			},
 			{
 				name: "UndoBtnActive",
 				path: this.baseFolder + "sprite/game/btnUndoActive.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "50% 57.14%"
 			},
 			{
 				name: "UndoBtnHover",
 				path: this.baseFolder + "sprite/game/btnUndoHover.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "100% 57.14%"
 			},
 			{
 				name: "UndoBtnStatic",
 				path: this.baseFolder + "sprite/game/btnUndoStatic.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 57.14%"
 			},
 			{
 				name: "ResetBtnActive",
 				path: this.baseFolder + "sprite/game/btnResetActive.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "50% 42.86%"
 			},
 			{
 				name: "ResetBtnHover",
 				path: this.baseFolder + "sprite/game/btnResetHover.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "100% 42.86%"
 			},
 			{
 				name: "ResetBtnStatic",
 				path: this.baseFolder + "sprite/game/btnResetStatic.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 42.86%"
 			},
 			{
 				name: "OptionsBtnActive",
 				path: this.baseFolder + "sprite/game/btnSettingsActive.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "50% 71.43%"
 			},
 			{
 				name: "OptionsBtnHover",
 				path: this.baseFolder + "sprite/game/btnSettingsHover.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "100% 71.43%"
 			},
 			{
 				name: "OptionsBtnStatic",
 				path: this.baseFolder + "sprite/game/btnSettingsStatic.png",
-				spriteSheetName: ""
+				spriteSheetName: "btnSpriteSheet",
+				position: "0 71.43%"
 			}
+
 		]
 
 		// TODO calculer le nombre total d'image à charger srpitesheet et images comprise
@@ -571,8 +627,8 @@ function (
 //			}
 		}
 		
-		var test = SpriteManager.getObj('englishFlag');
-		console.log(test);
+//		var test = SpriteManager.getObj('englishFlag');
+//		console.log(test);
 	};
 
 
