@@ -143,17 +143,35 @@ function (
 
 		for (var i = 0; i < flagList.length; i++) {
 		 	$("#Options").append("<div id='" + flagList[i] + "' class='flag'></div>");
-			$("#Options #" + flagList[i]).css("background-image", "url(" + SpriteManager.get(flagList[i]).src + ")");
-
+			if(Config.spriteSheet) {
+				$("#Options #" + flagList[i]).css("background-image", "url(" + SpriteManager.getObj(flagList[i]).img.src + ")")
+					.css('background-size', SpriteManager.getObj(flagList[i]).backgroundSize)
+					.css('background-position', SpriteManager.getObj(flagList[i]).position);
+			} else {
+				$("#Options #" + flagList[i]).css("background-image", "url(" + SpriteManager.get(flagList[i]).src + ")");
+			}
+			
 			//Hover
 			$("#Options #" + flagList[i]).hover((function(id) {
 				return function () {
-					$(this).css("background-image", "url(" + SpriteManager.get(flagList[id] + "Survol").src + ")");
+					if(Config.spriteSheet) {
+						$(this).css("background-image", "url(" + SpriteManager.getObj(flagList[id] + "Survol").img.src + ")")
+							.css('background-size', SpriteManager.getObj(flagList[id] + 'Survol').backgroundSize)
+							.css('background-position', SpriteManager.getObj(flagList[id] + 'Survol').position);
+					} else {
+						$(this).css("background-image", "url(" + SpriteManager.get(flagList[id] + "Survol").src + ")");						
+					}
 					$("#Options #" + flagList[id]).effect("shake", {distance: 1, times: 1});
 				}
 			})(i), (function(id) {
 				return function () {
-					$(this).css("background-image", "url(" + SpriteManager.get(flagList[id]).src + ")");
+					if(Config.spriteSheet) {
+						$(this).css("background-image", "url(" + SpriteManager.getObj(flagList[id]).img.src + ")")
+							.css('background-size', SpriteManager.getObj(flagList[id]).backgroundSize)
+							.css('background-position', SpriteManager.getObj(flagList[id]).position);
+					} else {
+						$(this).css("background-image", "url(" + SpriteManager.get(flagList[id]).src + ")");
+					}					
 				}
 			})(i) );
 

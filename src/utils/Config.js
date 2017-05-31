@@ -33,6 +33,11 @@ function (
 		
 		this.tooltip = false; // Active/Desactive les tooltips issus de "jquery-ui"
 		if(this.tooltip) { $(document).tooltip(); }
+		
+		/**
+		 * Préchargement des sprites
+		 */
+		this.spriteSheet = false; // Active spriteSheet (gain de peformance) sinon charge les images comme à l'origine  
 
 		/**
 		 * Reglage écran
@@ -65,8 +70,8 @@ function (
 		// Taille de la map
 		this.mapSizeX = 11;
 		this.mapSizeY = 11;
-		this.mapWidth = 61;
-		this.mapHeight = 61;
+		this.mapWidth = 61; // largeur des tiles
+		this.mapHeight = 61; // hauteur des tiles
 
 		// Effet chargement de la map
 		this.fadeInMin = 0;
