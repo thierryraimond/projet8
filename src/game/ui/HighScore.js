@@ -30,6 +30,13 @@ function (
 									  .css("height", 600,5)
 									  .css( "left", "170" )
 									  .css( "top", "20" );
+		
+		
+		$("#HighScore").append('<div id="adventureClassic" class="highScoreHalf"></div>');
+		$("#HighScore").append('<div id="adventureNew" class="highScoreHalf"></div>');
+		
+		//Title
+		$("#screenContainer #HighScore").append("<div class='highScoreTitle'>" + txt.get("LABEL_POPUP_HIGHSCORE_TITLE") + "</div>");
 
 		$("#HighScore").append("<div class='buttonClose'>" + txt.get("LABEL_POPUP_CLOSEBTN") + "</div>");
 		$("#HighScore .buttonClose").css("background-image", "url(" + SpriteManager.get("buttonLoginStatic").src + ")")
@@ -58,8 +65,7 @@ function (
 			UIManager.closeScreen("HighScore", true);
 		});
 
-		//Title
-		$("#screenContainer #HighScore").append("<div class='highScoreTitle'>" + txt.get("LABEL_POPUP_HIGHSCORE_TITLE") + "</div>");
+
 
 		var highScoreList = Account.highScore;
 //		var playerScoreList = Account.playerScore;
@@ -69,6 +75,8 @@ function (
 		
 		var name;
 		var score;
+		
+		$("#screenContainer #adventureClassic").append('<div id="classic" class="adventure">Classique</div>');
 
 		// affiche les 10 meilleurs scores
 		for (var i = 0; i < 10; i++) {
@@ -79,8 +87,8 @@ function (
 				name = "Aucun";
 				score = "/";
 			}
-			$("#screenContainer #HighScore").append("<div class='nameAndScore' id='number" + i + "'" + ">" + (i + 1) + ". " + name + " : " + score + "</div>");
-			var topOffset = 100 + 30 * i;
+			$("#screenContainer #adventureClassic").append("<div class='nameAndScore' id='number" + i + "'" + ">" + (i + 1) + ". " + name + " : " + score + "</div>");
+			var topOffset = 110 + 30 * i;
 			$("#number" + i).css("top", topOffset);
 		}
 
@@ -95,7 +103,7 @@ function (
 		var myScoreText = (playerRank + 1) + txt.get("LABEL_YOUR_SCORE") + playerScore;
 		if (typeof playerScore == "undefined") myScoreText =  txt.get("LABEL_POPUP_HIGHSCORE_NORANK");
 
-		$("#screenContainer #HighScore").append("<div id='yourHighScore'>" + myScoreText + "</div>");
+		$("#screenContainer #adventureClassic").append("<div id='yourHighScore'>" + myScoreText + "</div>");
 	}
 	return new HighScore();
 });
