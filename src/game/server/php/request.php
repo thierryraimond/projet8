@@ -16,39 +16,58 @@ switch ($requestName) {
 	case 'sendScore':
 		$level = getParam("level", "POST");
 		$score = getParam("score", "POST");
-		$name = getParam("name", "POST");
-		$request = "SELECT * FROM `score` WHERE level='" . $level . "' and playerName='" . $name . "'";
+		$userId = getParam("userId", "POST");
+		$adventure = getParam("adventure", "POST");
+		$request = "
+				SELECT * 
+				FROM `score` 
+				WHERE level='" . $level . "' and userId='" . $userId . "' and adventureId='".$adventure."'";
 		$result = SQLRequest($connexion, $request);
 
 		if (!$result) {
 			$request = "INSERT INTO  `score` (
-			`id` ,
+			`scoreId` ,
 			`level` ,
 			`score` ,
-			`playerName`
+			`userId`,
+			`adventureId`
 			)
 			VALUES (
-			NULL ,  '" . $level . "',  '" . $score . "', '" . $name . "'
+			NULL ,  '" . $level . "',  '" . $score . "', '" . $userId . "', '".$adventure."'
 			);";
 			$result = SQLRequest($connexion, $request);
-			echo 'score insered';
+			echo json_encode('score insered');
 		} else {
-			$request = "UPDATE `score` SET `score`='" . $score . "' WHERE `playerName`='" . $name . "' and `level`='" . $level . "' and `score`<2";
+			$request = "UPDATE `score` SET `score`='" . $score . "' WHERE `userId`='" . $userId . "' and `level`='" . $level . "' and `adventureId`='".$adventure."'  and `score`<2";
 			$result = SQLRequest($connexion, $request);
-			echo 'score updated';
+			echo json_encode('score updated');
 		}
 		break;
 	case 'getBestScore':
-		$request = "SELECT sum(score) as score, playerName
-		FROM `score`
-		GROUP BY playerName
-		ORDER BY sum(score) DESC";
+// 		$request = "SELECT sum(score) as score, playerName
+// 		FROM `score`
+// 		GROUP BY playerName
+// 		ORDER BY sum(score) DESC";
+		$request = " 
+			SELECT SUM(score.score) as score, user.name as playerName
+			FROM score
+			JOIN user ON score.userId = user.userId
+			WHERE score.adventureId = '1'
+			GROUP BY score.userId
+			ORDER BY SUM(score.score) DESC";
 		$result = SQLRequest($connexion, $request);
 		echo json_encode($result);
 		break;
 	case 'getProgress':
+		$userId = getParam("userId", "POST");
+		$request = "SELECT * FROM `score` WHERE `userId`='" . $userId . "'";
+		$result = SQLRequest($connexion, $request);
+		echo json_encode($result);
+		break;
+	case 'getUserId':
 		$name = getParam("name", "POST");
-		$request = "SELECT * FROM `score` WHERE `playerName`='" . $name . "'";
+		$password = getParam("password", "POST");
+		$request = "SELECT userId FROM `user` WHERE `name`='" . $name . "'";
 		$result = SQLRequest($connexion, $request);
 		echo json_encode($result);
 		break;

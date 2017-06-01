@@ -10,12 +10,13 @@ function (
 	ServerConfig
 ) {
 	var Account = function () {
+		this.userId = 0;
 		this.name = "";
 		this.password = "";
 		this.progress = {};
 		this.highScore = 0;
-		this.playerScore = 0;
-		this.status = {}; // statut de la connection au compte de l'utilisateur sous la forme jqXHR object
+//		this.playerScore = 0;
+		this.status = {}; // statut de la connexion au compte de l'utilisateur sous la forme jqXHR object
 	};
 
 
@@ -57,10 +58,13 @@ function (
 //			data = JSON.parse(data);
 						
 			this.UIManager.addScreen(data.message, true);
-			
-			this.refreshProgress();
-			this.refreshScore();
 
+			if (data.message != 'WrongPassword') {
+				this.getUserId();
+//				this.refreshProgress();
+//				this.refreshScore();
+				this.getBestScore();
+			}
 		}.bind(this), 'json');
 	};
 
@@ -74,7 +78,8 @@ function (
 			name: this.name,
 			password: this.password,
 			request: "getProgress",
-			isRequest: true
+			isRequest: true,
+			userId: this.userId
 		}, function (data) {
 			data = JSON.parse(data);
 			if (!data) data = [];
@@ -87,6 +92,9 @@ function (
 				level: []
 			}
 
+//			console.log("refreshProgress => getProgress => data");
+//			console.log(data);
+			
 			var unlocked;
 			var score;
 			for (var i = 0; i < Config.totalLevel; i++) {
@@ -103,14 +111,16 @@ function (
 					score: score,
 				})
 			};
+//			console.log("this.progress");
+//			console.log(this.progress);
 		}.bind(this));
 	}
 
 
 	/*
-	 * Permet d'ajouter un score à la database.
+	 * Permet d'ajouter ou mettre à jour un score dans la database.
 	 * @level Niveau auquel correspond le score
-	 * @score Score à ajouter
+	 * @score Score à ajouter ou modifier
 	 */
 	Account.prototype.addScore = function (level, score) {
 		$.post(ServerConfig.host + "request.php", {
@@ -119,30 +129,37 @@ function (
             request: "sendScore",
             level: level,
             score: score,
-			isRequest: true
+			isRequest: true,
+			adventure: Config.adventure,
+			userId: this.userId
 		}, function (data) {
+//			console.log("addScore => sendScore => data");
+//			console.log(JSON.parse(data));
 			this.refreshProgress();
-			this.refreshScore();
+//			this.refreshScore();
+			this.getBestScore();
 		}.bind(this));
 	}
 
-
-	/*
-	 * Récupère le score total du joueur.
-	 * Return Score du joueur.
-	 */
-	Account.prototype.getScore = function () {
-		var result;
-		$.post(ServerConfig.host + "request.php", {
-			name: this.name,
-			password: this.password,
-			request: "getBestScore",
-			isRequest: true
-		}, function (data) {
-			data = JSON.parse(data);
-			this.playerScore = data;
-		}.bind(this));
-	}
+/** prototype inutile faisant doublon avec getBestScore */
+//	/*
+//	 * Récupère le score total du joueur.
+//	 * Return Score du joueur.
+//	 */
+//	Account.prototype.getScore = function () {
+//		var result;
+//		$.post(ServerConfig.host + "request.php", {
+//			name: this.name,
+//			password: this.password,
+//			request: "getBestScore",
+//			isRequest: true
+//		}, function (data) {
+//			data = JSON.parse(data);
+//			this.playerScore = data;
+////			console.log("getScore => getBestScore => data => this.playerScore");
+////			console.log(data);
+//		}.bind(this));
+//	}
 
 
 	/*
@@ -159,17 +176,38 @@ function (
 		}, function (data) {
 			data = JSON.parse(data);
 			this.highScore = data;
+//			this.playerScore = data;
+//			console.log("getBestScore => getBestScore => data => this.highScore");
+//			console.log(data);
 		}.bind(this));
 	}
-
-
-	/**
-	 * Met à jours la variable highScore et playerScore
+	
+	/*
+	 * Récupère le userId du joueur
 	 */
-	Account.prototype.refreshScore = function () {
-		this.getBestScore();
-		this.getScore();
-	}
+	Account.prototype.getUserId = function () {
+		$.post(ServerConfig.host + "request.php", {
+			name: this.name,
+			password: this.password,
+			request: "getUserId",
+			isRequest: true
+		}, function (data) {
+			data = JSON.parse(data);
+			this.userId = data[0].userId;
+//			console.log("getUserId => data => this.userId");
+//			console.log(this.userId);
+			this.refreshProgress();
+		}.bind(this));
+	};
+
+/** avait de sens que pour lancer au moins deux méthodes */
+//	/**
+//	 * Met à jour la variable highScore et playerScore
+//	 */
+//	Account.prototype.refreshScore = function () {
+//		this.getBestScore();
+////		this.getScore(); // requête inutile
+//	}
 
 
 	return new Account();

@@ -84,7 +84,7 @@ function (
 		var starEffectMin = 1000;
 		var starEffectMax = 10000;
 
-		for (var i = 1; i < 16; i++) {
+		for (var i = 1; i < Config.totalLevel+1 ; i++) {
 			isUnlocked = Account.progress.level[i - 1].unlocked;
 			if (isUnlocked) {
 				className = "btnLevel";

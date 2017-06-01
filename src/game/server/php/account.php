@@ -13,11 +13,11 @@ $isRequest = getParam("isRequest", "POST");
 // $password = getParam("password", "GET");
 // $isRequest = getParam("isRequest", "GET");
 
-$arr = SQLRequest($connexion, "SELECT * FROM users WHERE name='" . $name . "'");
+$arr = SQLRequest($connexion, "SELECT * FROM user WHERE name='" . $name . "'");
 
 if (!$arr) {
-	$request = "INSERT INTO  `users` (
-	`id` ,
+	$request = "INSERT INTO  `user` (
+	`userId` ,
 	`name` ,
 	`password` ,
 	`date`

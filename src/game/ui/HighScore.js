@@ -62,7 +62,7 @@ function (
 		$("#screenContainer #HighScore").append("<div class='highScoreTitle'>" + txt.get("LABEL_POPUP_HIGHSCORE_TITLE") + "</div>");
 
 		var highScoreList = Account.highScore;
-		var playerScoreList = Account.playerScore;
+//		var playerScoreList = Account.playerScore;
 
 		var playerScore;
 		var playerRank;
@@ -70,6 +70,7 @@ function (
 		var name;
 		var score;
 
+		// affiche les 10 meilleurs scores
 		for (var i = 0; i < 10; i++) {
 			if (typeof highScoreList[i] != "undefined") {
 				name = highScoreList[i]["playerName"];
@@ -81,14 +82,15 @@ function (
 			$("#screenContainer #HighScore").append("<div class='nameAndScore' id='number" + i + "'" + ">" + (i + 1) + ". " + name + " : " + score + "</div>");
 			var topOffset = 100 + 30 * i;
 			$("#number" + i).css("top", topOffset);
-		};
+		}
 
-		for (var i = 0; i < playerScoreList.length; i++) {
-			if (playerScoreList[i]["playerName"] == Account.name) {
-				playerScore = playerScoreList[i]["score"];
+		// recherche du score du joueur dans la liste des meilleurs scores
+		for (var i = 0; i < highScoreList.length; i++) {
+			if (highScoreList[i]["playerName"] == Account.name) {
+				playerScore = highScoreList[i]["score"];
 				playerRank = i;
 			}
-		};
+		}
 
 		var myScoreText = (playerRank + 1) + txt.get("LABEL_YOUR_SCORE") + playerScore;
 		if (typeof playerScore == "undefined") myScoreText =  txt.get("LABEL_POPUP_HIGHSCORE_NORANK");
