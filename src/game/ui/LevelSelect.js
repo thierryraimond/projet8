@@ -85,7 +85,7 @@ function (
 		var starEffectMax = 10000;
 
 		for (var i = 1; i < Config.totalLevel+1 ; i++) {
-			isUnlocked = Account.progress.level[i - 1].unlocked;
+			isUnlocked = Account.progress[Config.adventureSelect - 1].level[i - 1].unlocked;
 			if (isUnlocked) {
 				className = "btnLevel";
 				btnStatic = "btnLevelStatic";
@@ -122,7 +122,7 @@ function (
 
 			// Star append
 			if (isUnlocked) {
-				score = Account.progress.level[i - 1].score;
+				score = Account.progress[Config.adventureSelect - 1].level[i - 1].score;
 				for (var j = 1; j < 3; j++) {
 					if (score >= j) {
 						starName = "star";

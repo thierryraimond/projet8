@@ -48,11 +48,12 @@ switch ($requestName) {
 // 		FROM `score`
 // 		GROUP BY playerName
 // 		ORDER BY sum(score) DESC";
+		$adventureId = getParam("adventureId", "POST");
 		$request = " 
 			SELECT SUM(score.score) as score, user.name as playerName
 			FROM score
 			JOIN user ON score.userId = user.userId
-			WHERE score.adventureId = '1'
+			WHERE score.adventureId = '" . $adventureId . "'
 			GROUP BY score.userId
 			ORDER BY SUM(score.score) DESC";
 		$result = SQLRequest($connexion, $request);
@@ -60,7 +61,10 @@ switch ($requestName) {
 		break;
 	case 'getProgress':
 		$userId = getParam("userId", "POST");
-		$request = "SELECT * FROM `score` WHERE `userId`='" . $userId . "'";
+		$request = "SELECT * 
+					FROM `score` 
+					WHERE `userId`='" . $userId . "'
+					ORDER BY `level`, `adventureId`";
 		$result = SQLRequest($connexion, $request);
 		echo json_encode($result);
 		break;

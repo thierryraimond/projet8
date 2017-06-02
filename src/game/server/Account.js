@@ -13,8 +13,8 @@ function (
 		this.userId = 0;
 		this.name = "";
 		this.password = "";
-		this.progress = {};
-		this.highScore = 0;
+		this.progress = [];
+		this.highScore = [];
 //		this.playerScore = 0;
 		this.status = {}; // statut de la connexion au compte de l'utilisateur sous la forme jqXHR object
 	};
@@ -63,7 +63,8 @@ function (
 				this.getUserId();
 //				this.refreshProgress();
 //				this.refreshScore();
-				this.getBestScore();
+//				this.getBestScore();
+				this.refreshHighScore();
 			}
 		}.bind(this), 'json');
 	};
@@ -82,37 +83,79 @@ function (
 			userId: this.userId
 		}, function (data) {
 			data = JSON.parse(data);
-			if (!data) data = [];
+//			if (!data) data = [];
 
-			data.push({
-				score: 0
-			});
+//			data.push({
+//				score: 0
+//			});
 
-			this.progress = {
-				level: []
-			}
+//			this.progress = {
+//				level: []
+//			}
+			this.progress = [];
 
 //			console.log("refreshProgress => getProgress => data");
 //			console.log(data);
 			
+			// trie par aventure
+			var classique = [];
+			var nouvelle = [];
+
+			
+			for (var i = 0; i < data.length ; i++) {
+				
+//				console.log(typeof(parseInt(data[0].score)));
+//				console.log(typeof(data[0].adventureId));
+				
+				if (parseInt(data[i].adventureId) == 1) {
+					classique.push(data[i]);
+				}
+				if (parseInt(data[i].adventureId) == 2) {
+					nouvelle.push(data[i]);
+				}
+			}
+//			console.log(classique);
+//			console.log(nouvelle);
+			
 			var unlocked;
 			var score;
-			for (var i = 0; i < Config.totalLevel; i++) {
-				if (data.length <= i) {
-					unlocked = false;
-					score = 0;
-				} else {
-					unlocked = true;
-					score = data[i].score;
-				}
+			
+			/** intégration des aventures */
+			for (var n = 0; n < Config.adventure.length; n++) {
+				var temp = (n === 0) ? classique : nouvelle ;
+				if (temp.length == 0) temp.push({score:0});
+//				console.log(temp);
+				this.progress.push(
+					{ level: [] }	
+				);
+				for (var i = 0; i < Config.adventure[n].totalLevel; i++) {
+								
+					if (temp.length <= i) {
+						unlocked = false;
+						score = 0;
+					} else {
+						unlocked = true;
+						score = temp[i].score;
+					}
+					
+//					if (data.length <= i) {
+//						unlocked = false;
+//						score = 0;
+//					} else {
+//						unlocked = true;
+//						score = data[i].score;
+//					}
 
-				this.progress.level.push({
-					unlocked: unlocked,
-					score: score,
-				})
-			};
+					this.progress[n].level.push({
+						unlocked: unlocked,
+						score: score,
+					});
+				}
+			}			
+
 //			console.log("this.progress");
 //			console.log(this.progress);
+//			console.log(this.progress[0].level[0].score);
 		}.bind(this));
 	}
 
@@ -130,14 +173,15 @@ function (
             level: level,
             score: score,
 			isRequest: true,
-			adventure: Config.adventure,
+			adventure: Config.adventureSelect,
 			userId: this.userId
 		}, function (data) {
 //			console.log("addScore => sendScore => data");
 //			console.log(JSON.parse(data));
 			this.refreshProgress();
 //			this.refreshScore();
-			this.getBestScore();
+//			this.getBestScore();
+			this.refreshHighScore();
 		}.bind(this));
 	}
 
@@ -163,19 +207,24 @@ function (
 
 
 	/*
-	 * Récupère le top 10 des joueurs.
+	 * Récupère le top 10 des joueurs par aventure
+	 * @param adventureId
 	 * Return Objet du top 10
 	 */
-	Account.prototype.getBestScore = function () {
+	Account.prototype.getBestScore = function (adventureId) {
 		var result;
 		$.post(ServerConfig.host + "request.php", {
 			name: this.name,
 			password: this.password,
 			request: "getBestScore",
-			isRequest: true
+			isRequest: true,
+			adventureId: adventureId
 		}, function (data) {
 			data = JSON.parse(data);
-			this.highScore = data;
+			
+			for (var i=0; i < data.length ; i++) {
+				this.highScore[adventureId-1].result.push(data[i]);
+			}
 //			this.playerScore = data;
 //			console.log("getBestScore => getBestScore => data => this.highScore");
 //			console.log(data);
@@ -208,6 +257,22 @@ function (
 //		this.getBestScore();
 ////		this.getScore(); // requête inutile
 //	}
+	
+	/**
+	 * Met à jour la variable highScore en récupérant 
+	 * la somme des scores de chaque joueur par aventure
+	 */
+	Account.prototype.refreshHighScore = function () {
+		this.highScore = [];
+		for (var i = 0; i < Config.adventure.length; i++) {
+			this.highScore.push(
+					{ result: [] }	
+				);
+			this.getBestScore(i+1);
+		}
+//		console.log("highScore");
+//		console.log(this.highScore);
+	}
 
 
 	return new Account();

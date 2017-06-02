@@ -206,6 +206,14 @@
             <source>Log out</source>
             <target>Wyloguj</target>
         </trans-unit>      
+        <trans-unit id="LABEL_ADVENTURE1">
+            <source>Classical</source>
+            <target>Klasyczna</target>
+        </trans-unit>
+        <trans-unit id="LABEL_ADVENTURE2">
+            <source>New</source>
+            <target>Nowa</target>
+        </trans-unit>
 	</body>
 	</file>
 </xliff>

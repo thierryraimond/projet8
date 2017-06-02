@@ -205,7 +205,15 @@
         <trans-unit id="LABEL_MENU_DECONNEXION">
             <source>Log out</source>
             <target>cerrar sesión</target>
-        </trans-unit>	
+        </trans-unit>
+        <trans-unit id="LABEL_ADVENTURE1">
+            <source>Classical</source>
+            <target>Clásico</target>
+        </trans-unit>
+        <trans-unit id="LABEL_ADVENTURE2">
+            <source>New</source>
+            <target>Nueva</target>	
+        </trans-unit>
 	</body>
 	</file>
 </xliff>

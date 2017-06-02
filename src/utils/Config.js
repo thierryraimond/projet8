@@ -64,7 +64,13 @@ function (
 		 * Jeu
 		 */
 		// Aventure
-		this.adventure = 1 ; // 1:classique / 2:nouvelle aventure
+		this.adventure = [
+			{ id: 1, name: "classique", totalLevel: 15 },
+			{ id: 2, name: "nouvelle", totalLevel: 3 }
+		]; 
+		
+		// choix de l'aventure
+		this.adventureSelect = 1; // 1:classique / 2:nouvelle aventure
 		
 		// Nombre de niveau au total
 		this.totalLevel = 15;

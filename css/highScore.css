@@ -19,7 +19,7 @@
     position: absolute;
 }
 
-#yourHighScore {
+.yourHighScore {
     text-align: center;
 /*     padding-top: 310; */
     font-size: 0.9em;

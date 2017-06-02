@@ -202,6 +202,14 @@
             <source>Log out</source>
             <target>Log out</target>
         </trans-unit>
+        <trans-unit id="LABEL_ADVENTURE1">
+            <source>Classical</source>
+            <target>Classical</target>
+        </trans-unit>
+        <trans-unit id="LABEL_ADVENTURE2">
+            <source>New</source>
+            <target>New</target>
+        </trans-unit>
 	</body>
 	</file>
 </xliff>
