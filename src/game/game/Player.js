@@ -54,6 +54,12 @@ function (
 		this.moveQueue  = [];
 
 		this.translateOffset = new Vector2(0, 0);
+		
+		// log initialisation du joueur
+		console.log("PLAYER init");
+		console.log(this.modifier);
+		console.log(this.position);
+		
 	}
 
 
@@ -189,6 +195,13 @@ function (
 				var currentCellValue = MapManager.getCellValue(this.position.x, this.position.y);
 				var nextCellId = MapManager.getCellId(this.position.x + xOffset, this.position.y + yOffset);
 				var nextCellValue = MapManager.getCellValue(this.position.x + xOffset, this.position.y + yOffset);
+				
+				// log des mouvements
+				console.log("--------------------");
+				console.log("currentCellId = " + currentCellId);
+				console.log("currentCellValue = " + currentCellValue);
+				console.log("nextCellId = " + nextCellId);
+				console.log("nextCellValue = " + nextCellValue);
 
 				// Si la nextCell est une box
 				if (nextCellValue == MapManager.cell.box ||

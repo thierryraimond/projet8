@@ -50,3 +50,28 @@
     width: 16px;
     height: 16px;
 }
+
+#AdventureSelect {
+	text-align: center;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adventureHalf {
+	width: 50%; 
+ 	height: 100%; 
+    display: flex; 
+}
+#classicInner, #newInner { 
+	margin: auto; 	
+}
+.adventureHalf img:hover {
+	border: white solid 2px;
+	cursor: pointer;
+}
+.adventureName {
+	text-align: center;
+    padding-top: 0;
+    font-size: 0.9em;
+    text-decoration: underline;
+}

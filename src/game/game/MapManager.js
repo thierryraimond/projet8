@@ -27,7 +27,8 @@ define([
 	"assets/map/level12",
 	"assets/map/level13",
 	"assets/map/level14",
-	"assets/map/level15"
+	"assets/map/level15",
+	"assets/map/new_level1"
 ],
 function (
 	$,
@@ -55,7 +56,8 @@ function (
 	level12,
 	level13,
 	level14,
-	level15
+	level15,
+	new_level1
 ) {
 	var MapManager = function () {
 		this.currentMap = [];
@@ -91,7 +93,31 @@ function (
 			box: 21,
 			boxOnGoal: 22,
 			player: 23,
-			playerOnGoal: 24
+			playerOnGoal: 24,
+			
+			// new adventure
+			
+			level1Floor: 25,
+			
+			level1HedgeSideNO: 26,			
+			level1HedgeSideNE: 27,
+			level1HedgeSideSO: 28,
+			level1HedgeSideSE: 29,
+			
+			level1HedgeSideO: 30,
+			level1HedgeSideE: 31,
+			level1HedgeSideNS: 32,
+			
+			level1HedgeSideNSOpenO: 33,
+			level1HedgeSideNSOpenORock: 34,
+			level1HedgeSideNSOpenE: 35,
+			level1HedgeSideNSOpenERock: 36,
+
+			level1HedgeSideSORock: 37,
+			level1HedgeSideSERock: 40,
+			level1HedgeSideNSRock1: 41,
+			level1HedgeSideNSRock2: 42
+
 		}
 
 		this.floorColor = [
@@ -101,6 +127,12 @@ function (
 			"floorGreen",
 			"floorBlue",
 			"floorPurple"
+		];
+		
+		this.newFloorColor = [
+			{ name: "level1Floor", value: 25 },
+			{ name: "level2Floor", value: 25 },
+			{ name: "level3Floor", value: 25 }
 		];
 	}
 
@@ -166,6 +198,21 @@ function (
 		if (isNaN(this.levelNum)) this.levelNum = parseInt(name.substr(name.length - 1, 1)); // To do, cleaner ça, hack fait 1 j avant le rendu
 		this.levelStartDate = Date.now();
 		
+		console.log("levelNum = " + this.levelNum);
+		// nouvelle valeur de this.cell.floor et mise à joueur du Player si il s'agit d'une nouvelle aventure
+		if (Config.adventureSelect === 2) {
+			this.cell.floor = this.newFloorColor[this.levelNum-1].value;
+			this.Player.modifier.currentCell[0][1] = this.cell.floor;
+			this.Player.modifier.nextCell[0][0] = this.cell.floor;
+		} else {
+			this.cell.floor = 1;
+			this.Player.modifier.currentCell[0][1] = this.cell.floor;
+			this.Player.modifier.nextCell[0][0] = this.cell.floor;
+		}
+		console.log("this.cell.floor = " + this.cell.floor);
+		console.log(this.Player.modifier);
+		
+		
 		this.musicList = [
 			"",
 			"nyan_multigenre", // 1 - 5
@@ -194,6 +241,11 @@ function (
 		var map = eval(name);
 		Config.mapSizeX = Math.sqrt(map.layers[0].data.length); // Math.sqrt = racine carré
 		Config.mapSizeY = Math.sqrt(map.layers[0].data.length);
+		
+		// affiche Config.mapSize modifié
+		console.log("Config.mapSizeX = " + Config.mapSizeX);
+		console.log("Config.mapSizeY = " + Config.mapSizeX);
+		
 
 		$("#gameContainer").append("<div id='mapContainer'></div>")
 
@@ -201,6 +253,7 @@ function (
 		$("#hudParNumberText").text(this.levelPar);
 		this.Player.eatPower = map.properties.eatPower || 0;
 		
+		// boucle sur les datas de la map issue de tiled map editor
 		for (var i = 0; i < map.layers[0].data.length; i++) {
 
 			if (map.layers[0].data[i] >= this.cell.floorRed ||
@@ -215,8 +268,22 @@ function (
 					imageName = cellName;
 				}
 			}
+			
+			var floorImageName;
+			if (Config.adventureSelect === 2) {
+				floorImageName = this.newFloorColor[this.levelNum-1].name;
+//				if(map.layers[0].data[i] === 25) {
+//					this.currentMap.push(this.cell.floor);
+//				}
+				
+			} else {
+				// toute une ligne de la map prend la même floor color
+				floorImageName = this.floorColor[Math.floor(i / Config.mapSizeY) % this.floorColor.length];
+//				console.log("floorImageName = " + floorImageName);
+				
+			}
+			
 
-			var floorImageName = this.floorColor[Math.floor(i / Config.mapSizeY) % this.floorColor.length];
 
 			switch (map.layers[0].data[i]) {
 				case this.cell.floorRed:
@@ -246,10 +313,10 @@ function (
 			
 			if (map.layers[0].data[i] == this.cell.playerOnGoal ||
 				map.layers[0].data[i] == this.cell.player) {
-				$("#mapContainer").append("<div id='player'></div>")
-					$("#player").css("background-image", "url(" + SpriteManager.get("player").src + ")")
-								.css("width", 141 * Math.max(Config.mapWidth, Config.mapHeight) / 110)
-								.css("height", 87 * Math.max(Config.mapWidth, Config.mapHeight) / 110);
+				$("#mapContainer").append("<div id='player'></div>");
+				$("#player").css("background-image", "url(" + SpriteManager.get("player").src + ")")
+					.css("width", 141 * Math.max(Config.mapWidth, Config.mapHeight) / 110)
+					.css("height", 87 * Math.max(Config.mapWidth, Config.mapHeight) / 110);
 			}
 
 			$('#mapContainer').append('<div id="tile' + i + '" class="' + imageName + ' tile"></div>');
@@ -281,6 +348,13 @@ function (
 						moved = Player.move(clickX, clickY);
 					}
 					if (moved) MapManager.actionIncrement();
+					
+					// log des évents
+					console.log(
+						'EVENTS :  \n'+
+						' clickX = ' + clickX + ' - clickY = ' + clickY + '\n'+
+						' nextDir = ' + nextDir + ' - moved = ' + moved
+					);
 				}
 			})(this, i, this.Player);
 
@@ -293,6 +367,7 @@ function (
 				};
 			})(i), Config.fadeInMin + Math.random() * (Config.fadeInMax - Config.fadeInMin));
 		}
+		console.log(this.currentMap);
 	}
 
 
@@ -315,7 +390,7 @@ function (
 
 
 	/**
-	 * Détruit la map actuel
+	 * Détruit la map actuelle
 	 * @mapName String - Nom de la map à charger après le remove
 	 */
 	MapManager.prototype.removeMap = function (mapName) {
@@ -360,7 +435,7 @@ function (
 
 
 	/**
-	 * Retourne l'id de la case ce trouvant à la position x et y
+	 * Retourne l'id de la case se trouvant à la position x et y
 	 */
 	MapManager.prototype.getCellId = function (x, y) {
 		return (y % Config.mapSizeX) * Config.mapSizeX + x;

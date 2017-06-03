@@ -65,10 +65,37 @@ function (
 
 		$("#AdventureSelect").append("<div id='descTitleAdventureSelect'>" + txt.get("LABEL_POPUP_ADVENTURESELECT_DESCTITLE") + "</div>");
 		
-		/**
-		 * Bouton de sélection d'aventure
-		 */
-		//TODO créer un bouton en prenant exemple sur LevelSelect.js
+		//Sélectionner l'aventure classique
+		$('#AdventureSelect').append('<div id="classicSelect" class="adventureHalf"></div>');
+		$('#classicSelect').append('<div id="classicInner"></div>');
+		$('#classicInner').append('<img src="assets/img/sprite/ui/adventureSelect/classique.jpg" >')
+			.append('<p class="adventureName">'+ txt.get("LABEL_ADVENTURE1") +'</p>');
+		
+		$("#AdventureSelect .adventureHalf #classicInner img").mouseup(function() {
+			// modificiation aventure dans Config.js
+			Config.adventureSelect=1; 
+			Config.totalLevel = Config.adventure[0].totalLevel;
+			$("#blackScreen").hide();
+			SoundManager.play("meow14");
+			UIManager.closeScreen("AdventureSelect", true);
+			UIManager.addScreen("LevelSelect", true);
+		});
+		
+		// Sélectionner la nouvelle aventure
+		$('#AdventureSelect').append('<div id="newSelect" class="adventureHalf"></div>');
+		$('#newSelect').append('<div id="newInner"></div>');
+		$('#newInner').append('<img src="assets/img/sprite/ui/adventureSelect/newAdventureSpriteSheet.png" >')
+			.append('<p class="adventureName">'+ txt.get("LABEL_ADVENTURE2") +'</p>');
+		
+		$("#AdventureSelect .adventureHalf #newInner img").mouseup(function() {
+			// modificiation aventure dans Config.js
+			Config.adventureSelect=2; 
+			Config.totalLevel = Config.adventure[1].totalLevel;
+			$("#blackScreen").hide();
+			SoundManager.play("meow14");
+			UIManager.closeScreen("AdventureSelect", true);
+			UIManager.addScreen("LevelSelect", true);
+		});
 		
 	}
 	return new AdventureSelect();

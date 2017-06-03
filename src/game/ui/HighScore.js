@@ -111,7 +111,7 @@ function (
 				}
 			}
 
-			console.log(typeof(playerScore));
+//			console.log(typeof(playerScore));
 			var myScoreText = (playerRank + 1) + txt.get("LABEL_YOUR_SCORE") + playerScore;
 			if (typeof playerScore == "undefined" || playerScore == 0) myScoreText =  txt.get("LABEL_POPUP_HIGHSCORE_NORANK");
 

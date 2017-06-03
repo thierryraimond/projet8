@@ -211,7 +211,12 @@ function (
 						UIManager.closeScreen("Menu", true);
 						UIManager.closeScreen("LevelSelect", false);
 						UIManager.addScreen("GameStage", true);
-						MapManager.loadMap("level" + id);
+						if (Config.adventureSelect === 2) {
+							MapManager.loadMap("new_level" + id);
+						} else {
+							MapManager.loadMap("level" + id);
+						}
+						
 					}
 					SoundManager.play(mouseUpSound);
 				}
