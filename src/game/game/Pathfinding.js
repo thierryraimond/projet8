@@ -35,6 +35,22 @@ function (
 			MapManager.cell.sideExtNE,
 			MapManager.cell.sideExtSO,
 			MapManager.cell.sideExtSE,
+			//new adventure
+			MapManager.cell.level1HedgeSideNO,			
+			MapManager.cell.level1HedgeSideNE,
+			MapManager.cell.level1HedgeSideSO,
+			MapManager.cell.level1HedgeSideSE,
+			MapManager.cell.level1HedgeSideO,
+			MapManager.cell.level1HedgeSideE,
+			MapManager.cell.level1HedgeSideNS,			
+			MapManager.cell.level1HedgeSideNSOpenO,
+			MapManager.cell.level1HedgeSideNSOpenORock,
+			MapManager.cell.level1HedgeSideNSOpenE,
+			MapManager.cell.level1HedgeSideNSOpenERock,
+			MapManager.cell.level1HedgeSideSORock,
+			MapManager.cell.level1HedgeSideSERock,
+			MapManager.cell.level1HedgeSideNSRock1,
+			MapManager.cell.level1HedgeSideNSRock2
 		];
 
 		this.map = [];

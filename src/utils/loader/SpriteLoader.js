@@ -26,15 +26,15 @@ function (
 //				imageheight: 400,
 //				backgroundSize: "700% 400%" 
 //			},
-//			{
-//				name: "tilesNew",
-//				path: this.baseFolder + "/spriteSheet/newAdventureSpriteSheet.png",
-//				tilewidth: 16,
-//				tileheight: 16,
-//				imagewidth: 176,
-//				imageheight: 176,
-//				backgroundSize: "1100% 1100%" 
-//			},
+			{
+				name: "tilesNew",
+				path: this.baseFolder + "/spriteSheet/newAdventureSpriteSheet.png",
+				tilewidth: 16,
+				tileheight: 16,
+				imagewidth: 176,
+				imageheight: 176,
+				backgroundSize: "1100% 1100%" 
+			},
 			{
 				name: "flagSpriteSheet",
 				path: this.baseFolder + "/spriteSheet/flagSpriteSheet.png",
@@ -532,115 +532,123 @@ function (
 			{
 				name: "level1Floor",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_floor.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "10% 90%"
 			},
 			// hedge
 			{
 				name: "level1HedgeSideE",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideE.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "30% 10%"
 			},
 			{
 				name: "level1HedgeSideNE",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNE.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "30% 0"
 			},
 			{
 				name: "level1HedgeSideNO",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNO.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "0 0"
 			},
 			{
 				name: "level1HedgeSideNSOpenERock",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNS_openE_rock.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "10% 30%"
 			},
 			{
 				name: "level1HedgeSideNSOpenE",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNS_openE.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "10% 20%"
 			},
 			{
 				name: "level1HedgeSideNSOpenORock",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNS_openO_rock.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "20% 30%"
 			},
 			{
 				name: "level1HedgeSideNSOpenO",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNS_openO.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "20% 20%"
 			},
 			{
 				name: "level1HedgeSideNSRock1",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNS_rock1.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "10% 10%"
 			},
 			{
 				name: "level1HedgeSideNSRock2",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNS_rock2.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "20% 10%"
 			},
 			{
 				name: "level1HedgeSideNS",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideNS.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "10% 0"
 			},
 			{
 				name: "level1HedgeSideO",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideO.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "0 10%"
 			},
 			{
 				name: "level1HedgeSideSERock",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSE_rock.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "30% 30%"
 			},
 			{
 				name: "level1HedgeSideSE",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSE.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "30% 20%"
 			},
 			{
 				name: "level1HedgeSideSORock",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO_rock.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "0 30%"
 			},
 			{
 				name: "level1HedgeSideSO",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
-//				spriteSheetName: "tilesNew",
-				spriteSheetName: "",
-//				position: "100% 100%"
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "0 20%"
+			},
+			// wall
+			{
+				name: "level1WallGreenPlant",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_wallGreenPlant.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "0 50%"
 			},
 		]
 

@@ -116,7 +116,9 @@ function (
 			level1HedgeSideSORock: 37,
 			level1HedgeSideSERock: 40,
 			level1HedgeSideNSRock1: 41,
-			level1HedgeSideNSRock2: 42
+			level1HedgeSideNSRock2: 42,
+			
+			level1WallGreenPlant: 43
 
 		}
 
@@ -133,6 +135,12 @@ function (
 			{ name: "level1Floor", value: 25 },
 			{ name: "level2Floor", value: 25 },
 			{ name: "level3Floor", value: 25 }
+		];
+		
+		this.newWall = [
+			{ name: "level1WallGreenPlant", value: 43 },
+			{ name: "level2WallGreenPlant", value: 43 },
+			{ name: "level3WallGreenPlant", value: 43 }
 		];
 	}
 
@@ -199,15 +207,18 @@ function (
 		this.levelStartDate = Date.now();
 		
 		console.log("levelNum = " + this.levelNum);
-		// nouvelle valeur de this.cell.floor et mise à joueur du Player si il s'agit d'une nouvelle aventure
+		// Si il s'agit d'une nouvelle aventure 
+		// Change les valeurs de this.cell.floor et this.cell.wall puis met à jour Player
 		if (Config.adventureSelect === 2) {
 			this.cell.floor = this.newFloorColor[this.levelNum-1].value;
 			this.Player.modifier.currentCell[0][1] = this.cell.floor;
 			this.Player.modifier.nextCell[0][0] = this.cell.floor;
+			this.cell.wall = this.newWall[this.levelNum-1].value;
 		} else {
 			this.cell.floor = 1;
 			this.Player.modifier.currentCell[0][1] = this.cell.floor;
 			this.Player.modifier.nextCell[0][0] = this.cell.floor;
+			this.cell.wall = 7;
 		}
 		console.log("this.cell.floor = " + this.cell.floor);
 		console.log(this.Player.modifier);
@@ -320,14 +331,14 @@ function (
 			}
 
 			$('#mapContainer').append('<div id="tile' + i + '" class="' + imageName + ' tile"></div>');
-//			if (Config.spriteSheet) {
-//				$('#tile' + i).css("background-image", "url(" + SpriteManager.getObj(imageName).img.src + ")")
-//					.css('background-size', SpriteManager.getObj(imageName).backgroundSize)
-//					.css('background-position', SpriteManager.getObj(imageName).position);
-//			} else {
-//				$('#tile' + i).css("background-image", "url(" + SpriteManager.get(imageName).src + ")");
-//			}
-			$('#tile' + i).css("background-image", "url(" + SpriteManager.get(imageName).src + ")");
+			if (Config.spriteSheet && Config.adventureSelect === 2) {
+				$('#tile' + i).css("background-image", "url(" + SpriteManager.getObj(imageName).img.src + ")")
+					.css('background-size', SpriteManager.getObj(imageName).backgroundSize)
+					.css('background-position', SpriteManager.getObj(imageName).position);
+			} else {
+				$('#tile' + i).css("background-image", "url(" + SpriteManager.get(imageName).src + ")");
+			}
+//			$('#tile' + i).css("background-image", "url(" + SpriteManager.get(imageName).src + ")");
 			
 			$('#tile' + i).css("left", Config.mapWidth * (i % Config.mapSizeX))
 						  .css("top", Config.mapHeight * Math.floor(i / Config.mapSizeY))

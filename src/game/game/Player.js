@@ -234,7 +234,16 @@ function (
 				// Si il a un eatpower, cela bouffe le wall et le transforme en floor
 				if (this.eatPower > 0 && nextCellValue == MapManager.cell.wall) {
 					map[nextCellId] = MapManager.cell.floor;
-					$("#tile" + nextCellId).css("background-image", "url(" + SpriteManager.get( $("#tile" + nextCellId).data().floorColor ).src + ")");
+					
+					if (Config.spriteSheet && Config.adventureSelect === 2) {
+						$("#tile" + nextCellId).css("background-image", "url(" + SpriteManager.getObj( $("#tile" + nextCellId).data().floorColor ).img.src + ")")
+							.css('background-size', SpriteManager.getObj( $("#tile" + nextCellId).data().floorColor ).backgroundSize)
+							.css('background-position', SpriteManager.getObj( $("#tile" + nextCellId).data().floorColor ).position);
+					} else {
+						$("#tile" + nextCellId).css("background-image", "url(" + SpriteManager.get( $("#tile" + nextCellId).data().floorColor ).src + ")");
+					}
+					
+//					$("#tile" + nextCellId).css("background-image", "url(" + SpriteManager.get( $("#tile" + nextCellId).data().floorColor ).src + ")");
 					canMove = true;
 					this.eatPower--;
 					if (y) {

@@ -1,6 +1,6 @@
 /**
- * Permet de crée une animation disponible via un spriteSheet.
- * Cette classe va contenir toute les function animPause, onAnimEnd, setState etc et tout les differents spriteSheet
+ * Permet de créer une animation disponible via un spriteSheet.
+ * Cette classe va contenir toute les function animPause, onAnimEnd, setState etc et tous les differents spriteSheet
  */
 define([
 	"src/utils/assetsmanager/AnimationList",
@@ -32,7 +32,7 @@ function (
 
 
 	Animation.prototype.update = function () {
-		if (Date.now() - this.animTimer >= this.currentState.animSpeed && !this.paused) {
+		if (Date.now() - this.animTimer >= this.currentState.animSpeed && !this.paused) { //interessant pour déclencher animation
 			this.currentKey++;
 			if (this.currentState.key.length <= this.currentKey) {
 				this.currentKey = 0;
@@ -42,6 +42,7 @@ function (
 			this.clipCoord.swidth = this.currentState.key[this.currentKey].width;
 			this.clipCoord.sheight = this.currentState.key[this.currentKey].height;
 			this.animTimer = Date.now();
+//			console.log(this.animTimer);
 		}
 	}
 

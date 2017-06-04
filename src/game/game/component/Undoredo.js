@@ -2,10 +2,12 @@
  * Class qui gère le undo / redo du jeu
  */
 define([
-	"src/utils/assetsmanager/SpriteManager"
+	"src/utils/assetsmanager/SpriteManager",
+	"src/utils/Config",
 ],
 function (
-	SpriteManager
+	SpriteManager,
+	Config
 ) {
 	var Undoredo = function () {
 
@@ -45,6 +47,15 @@ function (
 				}
 				if (currAction.type == "eat") {
 					this.currentMap[currAction.param] = this.cell.wall;
+					
+					if (Config.spriteSheet && Config.adventureSelect === 2) {
+						$("#tile" + currAction.param).css("background-image", "url(" + SpriteManager.getObj("wall").img.src + ")")
+							.css('background-size', SpriteManager.getObj("wall").backgroundSize)
+							.css('background-position', SpriteManager.getObj("wall").position);
+					} else {
+						$("#tile" + currAction.param).css("background-image", "url(" + SpriteManager.get("wall").src + ")");
+					}
+					
 					$("#tile" + currAction.param).css("background-image", "url(" + SpriteManager.get("wall").src + ")");
 					this.Player.eatPower++;
 				}
@@ -64,7 +75,16 @@ function (
 				}
 				if (currAction.type == "eat") {
 					this.currentMap[currAction.param] = this.cell.floor;
-					$("#tile" + currAction.param).css("background-image", "url(" + SpriteManager.get( $("#tile" + currAction.param).data().floorColor ).src + ")");
+					
+					if (Config.spriteSheet && Config.adventureSelect === 2) {
+						$("#tile" + currAction.param).css("background-image", "url(" + SpriteManager.getObj( $("#tile" + currAction.param).data().floorColor ).img.src + ")")
+							.css('background-size', SpriteManager.getObj( $("#tile" + currAction.param).data().floorColor ).backgroundSize)
+							.css('background-position', SpriteManager.getObj( $("#tile" + currAction.param).data().floorColor ).position);
+					} else {
+						$("#tile" + currAction.param).css("background-image", "url(" + SpriteManager.get( $("#tile" + currAction.param).data().floorColor ).src + ")");
+					}
+					
+//					$("#tile" + currAction.param).css("background-image", "url(" + SpriteManager.get( $("#tile" + currAction.param).data().floorColor ).src + ")");
 					this.Player.eatPower--;
 				}
 			};

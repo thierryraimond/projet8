@@ -1,5 +1,5 @@
 /*
- * Liste des animation disponible
+ * Liste des animations disponibles
  */
 define([
 ],
