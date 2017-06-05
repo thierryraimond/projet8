@@ -58,9 +58,9 @@ function (
 				path: this.baseFolder + "/spriteSheet/pnjTileSet.png",
 				tilewidth: 32,
 				tileheight: 32,
-				imagewidth: 96,
+				imagewidth: 288,
 				imageheight: 128,
-				backgroundSize: "300% 400%"
+				backgroundSize: "900% 400%"
 			},
 		];		
 		
@@ -545,6 +545,20 @@ function (
 //				spriteSheetName: "",
 				position: "10% 90%"
 			},
+			{
+				name: "level2Floor",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_floor.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "40% 90%"
+			},
+			{
+				name: "level3Floor",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_floor.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "100% 100%"
+			},
 			// hedge
 			{
 				name: "level1HedgeSideE",
@@ -651,7 +665,65 @@ function (
 //				spriteSheetName: "",
 				position: "0 20%"
 			},
-			// wall
+			// fences
+			{
+				name: "level2FenceSideNO",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "30% 80%"
+			},
+			{
+				name: "level2FenceSideOE",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "30% 90%"
+			},
+			{
+				name: "level2FenceSideSO",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "30% 100%"
+			},
+			{
+				name: "level2FenceSideNS",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "40% 80%"
+			},
+			{
+				name: "level2FenceSideNE",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "50% 80%"
+			},
+			{
+				name: "level2FenceSideSE",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "50% 100%"
+			},
+			// mail Boxe
+			{
+				name: "level2MailSideN",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "40% 20%"
+			},
+			{
+				name: "level2MailSideS",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_hedgeSideSO.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "40% 30%"
+			},
+			// walls - plants - flowers
 			{
 				name: "level1WallGreenPlant",
 				path: this.baseFolder + "sprite/game/tilesNew/level1_wallGreenPlant.jpg",
@@ -659,91 +731,280 @@ function (
 //				spriteSheetName: "",
 				position: "0 50%"
 			},
+			{
+				name: "level2WallClover",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_wallGreenPlant.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "10% 40%"
+			},
+			{
+				name: "level2WallGreenPlant",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_wallGreenPlant.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "10% 50%"
+			},
+			{
+				name: "level3WallRedPlant",
+				path: this.baseFolder + "sprite/game/tilesNew/level1_wallGreenPlant.jpg",
+				spriteSheetName: "tilesNew",
+//				spriteSheetName: "",
+				position: "20% 70%"
+			},
 			// PNJ
 			{
-				name: "pnjWalkS1",
+				name: "level1PnjWalkS1",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
 				position: "0 0"
 			},
 			{
-				name: "pnjStaticS",
+				name: "level1PnjStaticS",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
-				position: "50% 0"
+				position: "12.5% 0"
 			},
 			{
-				name: "pnjWalkS2",
+				name: "level1PnjWalkS2",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
-				position: "100% 0"
+				position: "25% 0"
 			},
 			{
-				name: "pnjWalkO1",
+				name: "level1PnjWalkO1",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
 				position: "0 33.33%"
 			},
 			{
-				name: "pnjStaticO",
+				name: "level1PnjStaticO",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
-				position: "50% 33.33%"
+				position: "12.5% 33.33%"
 			},
 			{
-				name: "pnjWalkO2",
+				name: "level1PnjWalkO2",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
-				position: "100% 33.33%"
+				position: "25% 33.33%"
 			},
 			{
-				name: "pnjWalkE1",
+				name: "level1PnjWalkE1",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
 				position: "0 66.67%"
 			},
 			{
-				name: "pnjStaticE",
+				name: "level1PnjStaticE",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
-				position: "50% 66.67%"
+				position: "12.5% 66.67%"
 			},
 			{
-				name: "pnjWalkE2",
+				name: "level1PnjWalkE2",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
-				position: "100% 66.67%"
+				position: "25% 66.67%"
 			},
 			{
-				name: "pnjWalkN1",
+				name: "level1PnjWalkN1",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
 				position: "0 100%"
 			},
 			{
-				name: "pnjStaticN",
+				name: "level1PnjStaticN",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "12.5% 100%"
+			},
+			{
+				name: "level1PnjWalkN2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "25% 100%"
+			},
+			{
+				name: "level2PnjWalkS1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "37.5% 0"
+			},
+			{
+				name: "level2PnjStaticS",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "50% 0"
+			},
+			{
+				name: "level2PnjWalkS2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "62.5% 0"
+			},
+			{
+				name: "level2PnjWalkO1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "37.5% 33.33%"
+			},
+			{
+				name: "level2PnjStaticO",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "50% 33.33%"
+			},
+			{
+				name: "level2PnjWalkO2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "62.5% 33.33%"
+			},
+			{
+				name: "level2PnjWalkE1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "37.5% 66.67%"
+			},
+			{
+				name: "level2PnjStaticE",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "50% 66.67%"
+			},
+			{
+				name: "level2PnjWalkE2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "62.5% 66.67%"
+			},
+			{
+				name: "level2PnjWalkN1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "37.5% 100%"
+			},
+			{
+				name: "level2PnjStaticN",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
 				position: "50% 100%"
 			},
 			{
-				name: "pnjWalkN2",
+				name: "level2PnjWalkN2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "62.5% 100%"
+			},
+			{
+				name: "level3PnjWalkS1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "75% 0"
+			},
+			{
+				name: "level3PnjStaticS",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "87.5% 0"
+			},
+			{
+				name: "level3PnjWalkS2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "100% 0"
+			},
+			{
+				name: "level3PnjWalkO1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "75% 33.33%"
+			},
+			{
+				name: "level3PnjStaticO",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "87.5% 33.33%"
+			},
+			{
+				name: "level3PnjWalkO2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "100% 33.33%"
+			},
+			{
+				name: "level3PnjWalkE1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "75% 66.67%"
+			},
+			{
+				name: "level3PnjStaticE",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "87.5% 66.67%"
+			},
+			{
+				name: "level3PnjWalkE2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "100% 66.67%"
+			},
+			{
+				name: "level3PnjWalkN1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "75% 100%"
+			},
+			{
+				name: "level3PnjStaticN",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "87.5% 100%"
+			},
+			{
+				name: "level3PnjWalkN2",
 				path: this.baseFolder + "/spriteSheet/player.png",
 				spriteSheetName: "pnjSpriteSheet",
 //				spriteSheetName: "",
 				position: "100% 100%"
-			},
+			}
 		]
 
 		// TODO calculer le nombre total d'image à charger srpitesheet et images comprise

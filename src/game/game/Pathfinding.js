@@ -50,7 +50,62 @@ function (
 			MapManager.cell.level1HedgeSideSORock,
 			MapManager.cell.level1HedgeSideSERock,
 			MapManager.cell.level1HedgeSideNSRock1,
-			MapManager.cell.level1HedgeSideNSRock2
+			MapManager.cell.level1HedgeSideNSRock2,
+			// fences
+			MapManager.cell.level2FenceSideNO,
+			MapManager.cell.level2FenceSideOE,
+			MapManager.cell.level2FenceSideSO,
+			MapManager.cell.level2FenceSideNS,
+			MapManager.cell.level2FenceSideNE,
+			MapManager.cell.level2FenceSideSE,		
+			// mail boxe
+			MapManager.cell.level2MailSideN,
+			MapManager.cell.level2MailSideS,
+			// new adventure wall
+			MapManager.cell.level1WallGreenPlant,
+			MapManager.cell.level2WallClover,
+			MapManager.cell.level2WallGreenPlant,
+			MapManager.cell.level3WallRedPlant,
+			/** PNJ */
+			// level1
+			MapManager.cell.level1PnjWalkS1,
+			MapManager.cell.level1PnjStaticS,
+			MapManager.cell.level1PnjWalkS2,
+			MapManager.cell.level1PnjWalkO1,
+			MapManager.cell.level1PnjStaticO,
+			MapManager.cell.level1PnjWalkO2,
+			MapManager.cell.level1PnjWalkE1,
+			MapManager.cell.leve1PnjStaticE,
+			MapManager.cell.level1PnjWalkE2,
+			MapManager.cell.level1PnjWalkN1,
+			MapManager.cell.level1PnjStaticN,
+			MapManager.cell.level1PnjWalkN2,
+			// level2
+			MapManager.cell.level2PnjWalkS1,
+			MapManager.cell.level2PnjStaticS,
+			MapManager.cell.level2PnjWalkS2,
+			MapManager.cell.level2PnjWalkO1,
+			MapManager.cell.level2PnjStaticO,
+			MapManager.cell.level2PnjWalkO2,
+			MapManager.cell.level2PnjWalkE1,
+			MapManager.cell.level2PnjStaticE,
+			MapManager.cell.level2PnjWalkE2,
+			MapManager.cell.level2PnjWalkN1,
+			MapManager.cell.level2PnjStaticN,
+			MapManager.cell.level2PnjWalkN2,
+			// level3
+			MapManager.cell.level3PnjWalkS1,
+			MapManager.cell.level3PnjStaticS,
+			MapManager.cell.level3PnjWalkS2,
+			MapManager.cell.level3PnjWalkO1,
+			MapManager.cell.level3PnjStaticO,
+			MapManager.cell.level3PnjWalkO2,
+			MapManager.cell.level3PnjWalkE1,
+			MapManager.cell.leve13njStaticE,
+			MapManager.cell.level3PnjWalkE2,
+			MapManager.cell.level3PnjWalkN1,
+			MapManager.cell.level3PnjStaticN,
+			MapManager.cell.level3PnjWalkN2
 		];
 
 		this.map = [];

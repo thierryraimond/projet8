@@ -28,7 +28,8 @@ define([
 	"assets/map/level13",
 	"assets/map/level14",
 	"assets/map/level15",
-	"assets/map/new_level1"
+	"assets/map/new_level1",
+	"assets/map/new_level2"
 ],
 function (
 	$,
@@ -57,7 +58,8 @@ function (
 	level13,
 	level14,
 	level15,
-	new_level1
+	new_level1,
+	new_level2
 ) {
 	var MapManager = function () {
 		this.currentMap = [];
@@ -95,9 +97,11 @@ function (
 			player: 23,
 			playerOnGoal: 24,
 			
-			// new adventure
+			/** new adventure */
 			
 			level1Floor: 25,
+			level2Floor: 82,
+			level3Floor: 83,
 			
 			level1HedgeSideNO: 26,			
 			level1HedgeSideNE: 27,
@@ -118,21 +122,64 @@ function (
 			level1HedgeSideNSRock1: 41,
 			level1HedgeSideNSRock2: 42,
 			
-			level1WallGreenPlant: 43,
+			// fences
+			level2FenceSideNO: 85,
+			level2FenceSideOE: 86,
+			level2FenceSideSO: 87,
+			level2FenceSideNS: 88,
+			level2FenceSideNE: 89,
+			level2FenceSideSE: 90,
 			
-			// PNJ
-			pnjWalkS1: 44,
-			pnjStaticS: 45,
-			pnjWalkS2: 46,
-			pnjWalkO1: 47,
-			pnjStaticO: 48,
-			pnjWalkO2: 49,
-			pnjWalkE1: 50,
-			pnjStaticE: 51,
-			pnjWalkE2: 52,
-			pnjWalkN1: 53,
-			pnjStaticN: 54,
-			pnjWalkN2: 55
+			// mail boxe
+			level2MailSideN: 91,
+			level2MailSideS: 92,
+			
+			// new adventure wall
+			level1WallGreenPlant: 43,
+			level2WallClover: 80,
+			level2WallGreenPlant: 81,
+			level3WallRedPlant: 84,
+			
+			/** PNJ */
+			// level1
+			level1PnjWalkS1: 44,
+			level1PnjStaticS: 45,
+			level1PnjWalkS2: 46,
+			level1PnjWalkO1: 47,
+			level1PnjStaticO: 48,
+			level1PnjWalkO2: 49,
+			level1PnjWalkE1: 50,
+			leve1PnjStaticE: 51,
+			level1PnjWalkE2: 52,
+			level1PnjWalkN1: 53,
+			level1PnjStaticN: 54,
+			level1PnjWalkN2: 55,
+			// level2
+			level2PnjWalkS1: 56,
+			level2PnjStaticS: 57,
+			level2PnjWalkS2: 58,
+			level2PnjWalkO1: 59,
+			level2PnjStaticO: 60,
+			level2PnjWalkO2: 61,
+			level2PnjWalkE1: 62,
+			level2PnjStaticE: 63,
+			level2PnjWalkE2: 64,
+			level2PnjWalkN1: 65,
+			level2PnjStaticN: 66,
+			level2PnjWalkN2: 67,
+			// level3
+			level3PnjWalkS1: 68,
+			level3PnjStaticS: 69,
+			level3PnjWalkS2: 70,
+			level3PnjWalkO1: 71,
+			level3PnjStaticO: 72,
+			level3PnjWalkO2: 73,
+			level3PnjWalkE1: 74,
+			leve13njStaticE: 75,
+			level3PnjWalkE2: 76,
+			level3PnjWalkN1: 77,
+			level3PnjStaticN: 78,
+			level3PnjWalkN2: 79
 		}
 
 		this.floorColor = [
@@ -146,14 +193,14 @@ function (
 		
 		this.newFloorColor = [
 			{ name: "level1Floor", value: 25 },
-			{ name: "level2Floor", value: 25 },
-			{ name: "level3Floor", value: 25 }
+			{ name: "level2Floor", value: 82 },
+			{ name: "level3Floor", value: 83 }
 		];
 		
 		this.newWall = [
 			{ name: "level1WallGreenPlant", value: 43 },
-			{ name: "level2WallGreenPlant", value: 43 },
-			{ name: "level3WallGreenPlant", value: 43 }
+			{ name: "level2WallClover", value: 80 },
+			{ name: "level3WallRedPlant", value: 84 }
 		];
 		
 		this.pnj = {
@@ -161,7 +208,6 @@ function (
 			speed: 1000,
 			path: [],
 			currentPosition : 0,
-//			previewPosition: 0,
 			nextPosition: 0,
 			timeToMove: Date.now() + 1000
 		}
@@ -205,11 +251,9 @@ function (
 			var nextPosition = this.pnj.nextPosition;
 			var currentPosition = this.pnj.currentPosition;
 			
-			// TODO gestion de la collision
-			
-			// TODO si la prochaine case du pnj contient le joueur ou la box
+			// gestion de la collision		
+			// si la prochaine case du pnj contient le joueur ou la box
 			// alors la carte est rechargée
-			
 			if (this.currentMap[this.pnj.path[nextPosition].idCase] == this.cell.player ||
 					this.currentMap[this.pnj.path[nextPosition].idCase] == this.cell.box ) {
 				SoundManager.play("meow5");
@@ -230,7 +274,6 @@ function (
 				this.currentMap[this.pnj.path[nextPosition].idCase] = this.pnj.path[nextPosition].cellValue;
 				
 				this.pnj.currentPosition = this.pnj.nextPosition;
-//				this.pnj.previewPosition = this.pnj.nextPosition;
 				this.pnj.nextPosition++;
 				this.pnj.timeToMove = Date.now() + this.pnj.speed;
 			}			
@@ -254,7 +297,12 @@ function (
 				//	alert("Bravo, tu as fini le jeu");
 					
 				} else {
-					this.removeMap('level' + (this.levelNum + 1));
+					if (Config.adventureSelect == 2) {
+						this.removeMap('new_level' + (this.levelNum + 1));
+					} else {
+						this.removeMap('level' + (this.levelNum + 1));
+					}
+					
 				}
 			}
 		}
