@@ -52,7 +52,16 @@ function (
 				imagewidth: 261,
 				imageheight: 528,
 				backgroundSize: "300% 800%"
-			}
+			},
+			{
+				name: "pnjSpriteSheet",
+				path: this.baseFolder + "/spriteSheet/pnjTileSet.png",
+				tilewidth: 32,
+				tileheight: 32,
+				imagewidth: 96,
+				imageheight: 128,
+				backgroundSize: "300% 400%"
+			},
 		];		
 		
 		this.list = [
@@ -649,6 +658,91 @@ function (
 				spriteSheetName: "tilesNew",
 //				spriteSheetName: "",
 				position: "0 50%"
+			},
+			// PNJ
+			{
+				name: "pnjWalkS1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "0 0"
+			},
+			{
+				name: "pnjStaticS",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "50% 0"
+			},
+			{
+				name: "pnjWalkS2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "100% 0"
+			},
+			{
+				name: "pnjWalkO1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "0 33.33%"
+			},
+			{
+				name: "pnjStaticO",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "50% 33.33%"
+			},
+			{
+				name: "pnjWalkO2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "100% 33.33%"
+			},
+			{
+				name: "pnjWalkE1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "0 66.67%"
+			},
+			{
+				name: "pnjStaticE",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "50% 66.67%"
+			},
+			{
+				name: "pnjWalkE2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "100% 66.67%"
+			},
+			{
+				name: "pnjWalkN1",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "0 100%"
+			},
+			{
+				name: "pnjStaticN",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "50% 100%"
+			},
+			{
+				name: "pnjWalkN2",
+				path: this.baseFolder + "/spriteSheet/player.png",
+				spriteSheetName: "pnjSpriteSheet",
+//				spriteSheetName: "",
+				position: "100% 100%"
 			},
 		]
 

@@ -118,8 +118,21 @@ function (
 			level1HedgeSideNSRock1: 41,
 			level1HedgeSideNSRock2: 42,
 			
-			level1WallGreenPlant: 43
-
+			level1WallGreenPlant: 43,
+			
+			// PNJ
+			pnjWalkS1: 44,
+			pnjStaticS: 45,
+			pnjWalkS2: 46,
+			pnjWalkO1: 47,
+			pnjStaticO: 48,
+			pnjWalkO2: 49,
+			pnjWalkE1: 50,
+			pnjStaticE: 51,
+			pnjWalkE2: 52,
+			pnjWalkN1: 53,
+			pnjStaticN: 54,
+			pnjWalkN2: 55
 		}
 
 		this.floorColor = [
@@ -142,6 +155,16 @@ function (
 			{ name: "level2WallGreenPlant", value: 43 },
 			{ name: "level3WallGreenPlant", value: 43 }
 		];
+		
+		this.pnj = {
+			exists : false,
+			speed: 1000,
+			path: [],
+			currentPosition : 0,
+//			previewPosition: 0,
+			nextPosition: 0,
+			timeToMove: Date.now() + 1000
+		}
 	}
 
 
@@ -169,7 +192,50 @@ function (
 				$("#specialLogo0").css("margin-left", 0)
 								  .css("background-image", "url(" + SpriteManager.get("hudSpecialLogo").src + ")");
 			}
-		};
+		}
+		
+		// mouvement du pnj
+		if (this.pnj.exists && Date.now() >= this.pnj.timeToMove) {
+			
+			// si le parcours est terminé on recommence à 0
+			if (this.pnj.nextPosition >= this.pnj.path.length) {
+				this.pnj.nextPosition = 0;
+			}
+						
+			var nextPosition = this.pnj.nextPosition;
+			var currentPosition = this.pnj.currentPosition;
+			
+			// TODO gestion de la collision
+			
+			// TODO si la prochaine case du pnj contient le joueur ou la box
+			// alors la carte est rechargée
+			
+			if (this.currentMap[this.pnj.path[nextPosition].idCase] == this.cell.player ||
+					this.currentMap[this.pnj.path[nextPosition].idCase] == this.cell.box ) {
+				SoundManager.play("meow5");
+				this.removeMap(this.mapName);
+			} else {
+				// afficher une case vide sur la case actuelle du pnj
+				$('#tile'+ this.pnj.path[currentPosition].idCase).css("background-image", "url(" + SpriteManager.getObj(this.newFloorColor[this.levelNum-1].name).img.src + ")")
+				.css('background-size', SpriteManager.getObj(this.newFloorColor[this.levelNum-1].name).backgroundSize)
+				.css('background-position', SpriteManager.getObj(this.newFloorColor[this.levelNum-1].name).position);
+				
+				this.currentMap[this.pnj.path[currentPosition].idCase] = this.cell.floor;
+				
+				// afficher le pnj sur la prochaine case
+				$('#tile'+ this.pnj.path[nextPosition].idCase).css("background-image", "url(" + SpriteManager.getObj(this.pnj.path[nextPosition].cellName).img.src + ")")
+				.css('background-size', SpriteManager.getObj(this.pnj.path[nextPosition].cellName).backgroundSize)
+				.css('background-position', SpriteManager.getObj(this.pnj.path[nextPosition].cellName).position);
+				
+				this.currentMap[this.pnj.path[nextPosition].idCase] = this.pnj.path[nextPosition].cellValue;
+				
+				this.pnj.currentPosition = this.pnj.nextPosition;
+//				this.pnj.previewPosition = this.pnj.nextPosition;
+				this.pnj.nextPosition++;
+				this.pnj.timeToMove = Date.now() + this.pnj.speed;
+			}			
+
+		}
 
 		if ($("#mapContainer").length > 0 && this.currentMap.length > 0) {
 			var won = true;
@@ -198,13 +264,14 @@ function (
 	/**
 	 * Charge une map et l'affiche sur le jeu
 	 */
-	MapManager.prototype.loadMap = function (name) {
+	MapManager.prototype.loadMap = function (name) {	
 		this.resetActionHistory();
 		this.currentMap = [];
 		this.actionCount = 0; // Nombre d'action effectué par le joueur (deplacement, undo, redo)
 		this.levelNum = parseInt(name.substr(name.length - 2, 2));
 		if (isNaN(this.levelNum)) this.levelNum = parseInt(name.substr(name.length - 1, 1)); // To do, cleaner ça, hack fait 1 j avant le rendu
 		this.levelStartDate = Date.now();
+		this.mapName = name;
 		
 		console.log("levelNum = " + this.levelNum);
 		// Si il s'agit d'une nouvelle aventure 
@@ -257,6 +324,20 @@ function (
 		console.log("Config.mapSizeX = " + Config.mapSizeX);
 		console.log("Config.mapSizeY = " + Config.mapSizeX);
 		
+		// Vérification de l'existence d'un PNJ
+		if (typeof map.PNJPath == "undefined") { 
+			this.pnj.exists = false; 			
+		} else {
+			// initialisation du pnj et chargement de son parcours
+			this.pnj.exists = true;
+			this.pnj.currentPosition = 0;
+			this.pnj.nextPosition = 0;
+			this.pnj.path = map.PNJPath;
+			this.pnj.timeToMove = Date.now() + this.pnj.speed;
+		}
+		console.log(this.pnj.exists);
+		console.log(this.pnj.path);
+		console.log(this.pnj.timeToMove);
 
 		$("#gameContainer").append("<div id='mapContainer'></div>")
 
@@ -430,8 +511,15 @@ function (
 				}
 			}
 		})(this, mapName), Config.fadeInMax + 400 * 2);
-
-	}
+		
+		// arrêt du pnj
+		this.pnj.exists = false; 
+		this.pnj.path = [];
+//		this.pnj.currentPosition = 0;
+//		this.pnj.nextPosition = 0;
+		console.log("remove map, this.pnj.exists = " + this.pnj.exists);
+		
+	};
 
 
 	/**
