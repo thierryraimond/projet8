@@ -84,8 +84,8 @@ define(["src/game/server/Account"], function (Account) {
 			expect(typeof(Account.name)).toEqual('string');
 			expect(typeof(Account.password)).toEqual('string');
 			expect(typeof(Account.progress)).toEqual('object');
-			expect(typeof(Account.highScore)).toEqual('number');
-			expect(typeof(Account.playerScore)).toEqual('number');
+			expect(typeof(Account.highScore)).toEqual('object');
+			//expect(typeof(Account.playerScore)).toEqual('number');
 			expect(typeof(Account.status)).toEqual('object');
 		});
 		

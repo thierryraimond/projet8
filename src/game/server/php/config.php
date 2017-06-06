@@ -11,7 +11,13 @@
 ?>
 
 <?php
-	$source = "mysql:host=localhost;dbname=sokoban2";
+// 	$source = "mysql:host=localhost;dbname=sokoban2";
+// 	$user = "root";
+// 	$motDePasse = "";
+?>
+
+<?php
+	$source = "mysql:host=trsrv.no-ip.org;dbname=sokoban2";
 	$user = "root";
-	$motDePasse = "";
+	$motDePasse = "london06";
 ?>

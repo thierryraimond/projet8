@@ -31,7 +31,7 @@ function(
 			
 		});
 		
-		it("le chargement total n'a pas débuté", function() {
+		it("le chargement total est en cours", function() {
 //			expect(loaderManagerTest.getProgress()).toEqual(0);
 			expect(SpriteLoader.currentLoaded).toEqual(0);
 			expect(SpriteLoader.getProgress()).toEqual(0);
@@ -44,6 +44,7 @@ function(
 			
 			beforeEach(function(done) {
 			    setTimeout(function() {
+
 			    	done();
 			    }, 2000);
 			});
