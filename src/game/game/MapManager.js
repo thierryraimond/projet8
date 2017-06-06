@@ -29,7 +29,8 @@ define([
 	"assets/map/level14",
 	"assets/map/level15",
 	"assets/map/new_level1",
-	"assets/map/new_level2"
+	"assets/map/new_level2",
+	"assets/map/new_level3"
 ],
 function (
 	$,
@@ -59,7 +60,8 @@ function (
 	level14,
 	level15,
 	new_level1,
-	new_level2
+	new_level2,
+	new_level3
 ) {
 	var MapManager = function () {
 		this.currentMap = [];
@@ -130,6 +132,35 @@ function (
 			level2FenceSideNE: 89,
 			level2FenceSideSE: 90,
 			
+			level3FenceSideNO: 107,
+			level3FenceSideOE: 108,
+			level3FenceSideSO: 109,
+			level3FenceSideNS: 110,
+			level3FenceSideNE: 111,
+			level3FenceSideSE: 112,
+			
+			// tree
+			level3TreeLeaf1: 113,
+			level3TreeLeaf2: 114,
+			level3TreeLeaf3: 115,
+			level3TreeLeaf4: 116,
+			level3TreeLeaf5: 117,
+			level3TreeLeaf6: 118,
+			level3TreeLeaf7: 119,
+			level3TreeLeaf8: 120,
+			level3TreeLeaf9: 121,
+			level3TreeLeaf10: 122,
+			level3TreeLeaf11: 123,
+			level3TreeLeaf12: 124,
+			level3TreeRoot1: 125,
+			level3TreeRoot2: 126,
+			level3TreeRoot3: 127,
+			level3TreeRoot4: 128,
+			level3TreeRoot5: 129,
+			level3TreeRoot6: 130,
+			level3TreeRoot7: 131,
+			level3TreeRoot8: 132,
+			
 			// mail boxe
 			level2MailSideN: 91,
 			level2MailSideS: 92,
@@ -139,6 +170,22 @@ function (
 			level2WallClover: 80,
 			level2WallGreenPlant: 81,
 			level3WallRedPlant: 84,
+			
+			// house
+			level2HouseRoofSideNO: 93,
+			level2HouseRoofSideN: 94,
+			level2HouseRoofSideNE: 95,
+			level2HouseRoofSideO: 96,
+			level2HouseRoofSideM: 97, 
+			level2HouseRoofSideE: 98,
+			level2HouseRoofSideSO: 99,
+			level2HouseRoofDoorSideO: 100,
+			level2HouseRoofDoorSideE: 101,
+			level2HouseRoofSideSE: 102,
+			level2HouseWallSideSO: 103,
+			level2HouseDoorSideO: 104,
+			level2HouseDoorSideE: 105,
+			level2HouseWallSideSE: 106,
 			
 			/** PNJ */
 			// level1
@@ -293,8 +340,13 @@ function (
 				Account.addScore(this.levelNum, score);
 				
 				//alert("Bravo, tu as gagné.\nTon nombre d'action :" + this.actionCount + "\nLe par du niveau :" + this.levelPar + "\nTon score : " + score + "\nDev tip: Message temporaire");
-				if (this.levelNum + 1 == 16) {
-				//	alert("Bravo, tu as fini le jeu");
+				if (this.levelNum + 1 == Config.totalLevel + 1) {
+//					//alert("Bravo, tu as fini le jeu");
+//					//UIManager.closeScreen("GameStage", false);
+//					this.removeMap();
+//					UIManager.addScreen("Menu", true);
+					$('#MenuBtn').trigger('mouseup');
+					
 					
 				} else {
 					if (Config.adventureSelect == 2) {

@@ -166,7 +166,11 @@ function (
 						MapManager.redo();
 					}
 					if (buttonList[id] == "ResetBtn") {
-						MapManager.removeMap('level' + MapManager.levelNum);
+						if (Config.adventureSelect == 2){
+							MapManager.removeMap('new_level' + MapManager.levelNum);
+						} else {
+							MapManager.removeMap('level' + MapManager.levelNum);
+						}						
 					}
 					switch(buttonList[id]){
 						case "MenuBtn":

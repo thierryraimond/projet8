@@ -33,7 +33,7 @@ function (
  "properties":
 	 {
 	  "eatPower":"1",
-	  "par":"10"
+	  "par":"16"
 	 },
  "renderorder":"left-down",
  "tileheight":16,
