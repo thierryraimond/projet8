@@ -2,10 +2,12 @@
  * Manager qui gère les sons
  */
 define([
-	"howler"
+	"howler",
+	"src/utils/Config"
 ],
 function (
-	howler
+	howler,
+	Config
 ) {
 	var SoundManager = function () {
 		// Volume général
@@ -28,11 +30,42 @@ function (
 
 		this.list = [];
 		this.currentMusicInstance = null;
+		
+		this.musicPlayer = $('#musiqueFond');
 	};
 
+	SoundManager.prototype.musicPlay = function (name, loop) {
+		if (loop == "undefined") loop = false;
+
+		var currentSound = -1;
+		for (var i = 0; i < this.list.length; i++) {
+			if (this.list[i].name == name) {
+				currentSound = this.list[i];
+				break;
+			}
+		}
+		
+		if (currentSound == -1) throw new Error("SoundManager : Sound \"" + name + "\" does not exist.");
+
+		var volumeType = this.volume[currentSound.type] * (this.volume.global / 100);
+		var volumeSound = currentSound.volume * (volumeType / 100);
+		volumeSound /= 100;
+
+		// autoplay ?
+		this.musicPlayer[0].loop = loop;
+		
+		// définit le volume
+		this.musicPlayer[0].volume = volumeSound;
+		
+		this.musicPlayer[0].src = currentSound.path;
+		
+		this.musicPlayer[0].load();
+		this.musicPlayer[0].play();
+		
+	};
 
 	/*
-	 * Joue un son, peut avoir un callback appellé quand le son ce termine
+	 * Joue un son, peut avoir un callback appellé quand le son se termine
 	 */
 	SoundManager.prototype.play = function (name, loop) {
 		if (loop == "undefined") loop = false;
@@ -53,14 +86,17 @@ function (
 
 		// Callback
 		if (loop) {
-			currentSound.instance._onend = [function () {
-				this.play(name);
-			}.bind(this)];
+			if (Config.musicPreload) {
+				currentSound.instance._onend = [function () {
+					this.play(name);
+				}.bind(this)];
+			} 
 		}
-		currentSound.instance.volume(volumeSound);
 		
+		currentSound.instance.volume(volumeSound);
+			
 		var instance = currentSound.instance.play();
-
+					
 		// Empeche le multichannel si la source audio est une musique
 		if (currentSound.type == "music") {
 			if (this.currentMusicInstance != null) {
@@ -80,6 +116,7 @@ function (
 		for (var i = 0; i < this.list.length; i++) {
 			if (this.list[i].name == name) {
 				this.list[i].instance.stop();
+				this.musicPlayer[0].pause();
 				break;
 			}
 		}
@@ -92,6 +129,7 @@ function (
 	SoundManager.prototype.stopAll = function () {
 		for (var i = 0; i < this.list.length; i++) {
 			this.list[i].instance.stop();
+			this.musicPlayer[0].pause();
 		}
 	};
 

@@ -390,10 +390,13 @@ function (
 		console.log("this.cell.floor = " + this.cell.floor);
 		console.log(this.Player.modifier);
 		
-		
+//		var baseFolder = "assets/sound/";
+//		var nyan_multigenre = Config.localhost + baseFolder + "music/nyan_multigenre.mp3";
+		// music play list
 		this.musicList = [
 			"",
 			"nyan_multigenre", // 1 - 5
+//			nyan_multigenre,
 			false,
 			false,
 			false,
@@ -413,7 +416,12 @@ function (
 		];
 
 		var musicToPlay = this.musicList[this.levelNum];
-		musicToPlay ? SoundManager.play(musicToPlay, true) : null;
+		if (Config.musicPreLoad) {
+			musicToPlay ? SoundManager.play(musicToPlay, true) : null;
+		} else {
+			musicToPlay ? SoundManager.musicPlay(musicToPlay, true) : null;
+		}
+		
 
 		var imageName = "";
 		var map = eval(name);

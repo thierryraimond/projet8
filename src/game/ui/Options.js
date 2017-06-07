@@ -103,7 +103,11 @@ function (
 							switch(sliderName[id]){
 								case "Global":
 									SoundManager.volume.global = value;
-									SoundManager.play("nyan_elevator");
+									if (Config.musicPreLoad) {
+										SoundManager.play("nyan_elevator");
+									} else {
+										SoundManager.musicPlay("nyan_elevator");
+									}
 									break;
 								case "Music":
 									var temp = SoundManager.volume.sfx;
@@ -111,7 +115,11 @@ function (
 									SoundManager.play("meow10");
 									SoundManager.volume.music = value;
 									SoundManager.volume.sfx = temp;
-									SoundManager.play("nyan_elevator");
+									if (Config.musicPreLoad) {
+										SoundManager.play("nyan_elevator");
+									} else {
+										SoundManager.musicPlay("nyan_elevator");
+									}
 									break;
 								case "Sfx":
 									SoundManager.volume.sfx = value

@@ -39,6 +39,11 @@ function (
 		 * Préchargement des sprites
 		 */
 		this.spriteSheet = true; // Active spriteSheet (gain de peformance) sinon charge les images comme à l'origine  
+		
+		/**
+		 * Préchargement des musiques
+		 */
+		this.musicPreLoad = false; // Active / désactive le préchargement des musiques (gain de performance si non préchargé)
 
 		/**
 		 * Reglage écran

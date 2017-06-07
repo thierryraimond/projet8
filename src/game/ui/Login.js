@@ -5,13 +5,15 @@ define([
 	"src/utils/assetsmanager/SpriteManager",
 	"src/utils/assetsmanager/SoundManager",
 	"src/utils/localization/txt",
-	"src/game/server/Account"
+	"src/game/server/Account",
+	"src/utils/Config"
 ],
 function (
 	SpriteManager,
 	SoundManager,
 	txt,
-	Account
+	Account,
+	Config
 ) {
 	var Login = function () {
 
@@ -22,7 +24,13 @@ function (
 	 * Affiche le contenu dans gameContainer
 	 */
 	Login.prototype.init = function (UIManager) {
-		SoundManager.play("nyan_elevator", true);
+		
+		if (Config.musicPreLoad) {
+			SoundManager.play("nyan_elevator", true);
+		} else {
+			SoundManager.musicPlay("nyan_elevator", true);
+		}
+		
 
 		$("#screenContainer").append("<div id='Login'></div>");
 		$("#Login").append("<div class='loginBackground'></div>");

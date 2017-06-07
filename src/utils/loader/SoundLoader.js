@@ -5,13 +5,15 @@ define([
 	"underscore",
 	"howler",
 	"src/utils/debug/Debug",
-	"src/utils/assetsmanager/SoundManager"
+	"src/utils/assetsmanager/SoundManager",
+	"src/utils/Config"
 ],
 function (
 	_,
 	howler,
 	Debug,
-	SoundManager
+	SoundManager,
+	Config
 ) {
 	var SoundLoader = function () {
 		this.baseFolder = "assets/sound/";
@@ -67,7 +69,7 @@ function (
 			},
 			{
 				name: "buttonHover",
-				path: this.baseFolder + "sfx/buttonHover.wav",
+				path: this.baseFolder + "sfx/buttonHover.mp3",
 				volume: 20,
 				type: "sfx"
 			},
@@ -109,9 +111,28 @@ function (
 			});
 		}
 
-		this.totalToLoad = this.list.length;
+		this.listMusic = [];
+		
+		this.totalToLoad = Config.musicPreload ? this.list.length : this.list.length - this.getListMusic();
+		
+//		this.totalToLoad = this.list.length;
+		
 		this.currentLoaded = 0;
 	}
+	
+	/**
+	 * Charge la liste de toutes les musiques
+	 * dans la variable this.listMusic.
+	 * @return nombre de musique contenu dans this.listMusic
+	 */
+	SoundLoader.prototype.getListMusic = function () {		
+		for (var i = 0; i < this.list.length; i ++) {
+			if(this.list[i].type === "music") {
+				this.listMusic.push(this.list[i]);
+			}
+		}
+		return this.listMusic.length;
+	};
 
 
 	/**
@@ -119,47 +140,28 @@ function (
 	 */
 	SoundLoader.prototype.init = function () {
 		Debug.success("SoundLoader initialised.");
+				
 		SoundManager.list = _.clone(this.list);
-		
-//		var that = this;
-//		
-//		// https://stackoverflow.com/questions/7434371/image-onload-function-with-return
-//		// http://maxlab.fr/javascript/javascript-methodes-avancees/
-//		function detect(that, i, callback) {
-//			that.list[i].instance = new howler.Howl({
-//				urls: [that.list[i].path],
-//				onload: function () {
-//					callback(++that.currentLoaded, that.list[i].instance._loaded);
-//				}.bind(that)
-//			});
-//		};
+		console.log(SoundManager.list);
 		
 		var debut = new Date(); // temps du début du chargement
 		
+		
 		for (var i = 0; i < this.list.length; i ++) {
-//			detect(that, i, function(result, instance) {
-//				console.log(result + ' ' + instance);
-//			});	
-			this.list[i].instance = new howler.Howl({
-				urls: [this.list[i].path],
-				onload: function () {
-					this.currentLoaded++;
-					if(this.currentLoaded === this.totalToLoad) {
-						var fin = new Date(); // temps de fin du chargement
-						Debug.success("SoundLoader Completed, time: " + (fin.getTime()-debut.getTime()) + " ms.");
-					}
-				}.bind(this)
-			});
-//			console.log(this.list[i].instance);
-//			console.log(this.list[i].instance._loaded);
-//			console.log(this.currentLoaded);
-//			if (this.list[i].instance._loaded) this.currentLoaded++; 
-		}		
-
-//	    setTimeout(function() {
-//	    	console.log(this.currentLoaded);
-//	    }.bind(this), 1000);
-	    
+			// le préchargement des sons s'effectue pour tous les sons sauf pour les musiques si Config.musicPreload est à false
+			if (Config.musicPreLoad || this.list[i].type != "music") {
+				this.list[i].instance = new howler.Howl({
+					urls: [this.list[i].path],
+					onload: function () {
+						this.currentLoaded++;
+						if(this.currentLoaded === this.totalToLoad) {
+							var fin = new Date(); // temps de fin du chargement
+							Debug.success("SoundLoader Completed, time: " + (fin.getTime()-debut.getTime()) + " ms.");
+						}
+					}.bind(this)
+				});		
+			}
+		}
 	    
 	};
 
