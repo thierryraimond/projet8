@@ -13,7 +13,7 @@ function (
 		 */
 		this.version = "1.0.0";
 		/* Réglage serveur local ou web */
-		this.local = false; // Si les requêtes se font en local ou vers le serveur web.
+		this.local = true; // Si les requêtes se font en local ou vers le serveur web.
 		this.localhost = 'http://localhost/oc/projet8/';
 		// var localhost = 'http://localhost/sokoban/localization/';
 		// var localhost = 'https://fbgame.isartdigital.com/sokoban/sokoban26/bin/localization/';
