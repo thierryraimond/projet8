@@ -40,14 +40,17 @@
     font-size: 1em;
     left: 65px;
     top: 170px;
+    z-index: 2;
 }
 .hudSpecialLogo {
-    position: absolute;
+    position: absolute; 
     font-family:Fipps, sans-serif;
     width: 45px;
     height: 45px;
-    top: 220px;
+/*     top: 220px;  */
+    top: 65px; 
     background-size: 100% 100%;
+    z-index: 2;
 }
 
 
@@ -57,6 +60,7 @@
     font-size: 1.2em;
     top: 410px;
     left: 115px;
+    z-index: 2;
 }
 
 #hudActionTitleText {
@@ -65,6 +69,7 @@
     font-size: 1em;
     top: 269px;
     left: 79px;
+    z-index: 2;
 }
 #hudActionNumberText {
     position: absolute;
@@ -72,6 +77,7 @@
     font-size: 1.2em;
     top: 305px;
     left: 127px;
+    z-index: 2;
 }
 
 #hudParTitleText {
@@ -80,6 +86,7 @@
     font-size: 1.1em;
     top: 357px;
     left: 78px;
+    z-index: 2;
 }
 #hudParNumberText {
     position: absolute;
@@ -87,49 +94,64 @@
     font-size: 1.2em;
     top: 355px;
     left: 153px;
+    z-index: 2;
 }
 
 #menuContainer .buttonMenu {
 	position: absolute;
-	left: 873px;
+/* 	left: 873px; */
 	height: 59.4px;
     width: 78.3px;
     background-size: 100% 100%;
     font-size: 0.8em;
+    z-index: 2;
 }
 
 #menuContainer #OptionsBtn {
-    top: 260px;
-    left: 967px;
+/*     top: 260px; */
+/*     left: 967px; */
+    top: 11px;
+    left: 88px;
     cursor: pointer;
+    
 }
 
 #menuContainer #HelpBtn {
-    top: 260px;
-    left: 1050px;
+/*     top: 260px; */
+/*     left: 1050px; */
+    top: 11px;
+    left: 171px;
     cursor: pointer;
 }
 
 #menuContainer #MenuBtn {
-    top: 260px;
-    left: 885px;
+/*     top: 260px; */
+/*     left: 885px; */
+    top: 11px;
+    left: 6px;
     cursor: pointer;
 }
 
 #menuContainer #ResetBtn {
-    top: 325px;
-    left: 1050px;
+/*     top: 325px; */
+/*     left: 1050px; */
+    top: 76px;
+    left: 171px;
     cursor: pointer;
 }
 
 #menuContainer #UndoBtn {
-    top: 325px;
-    left: 885px;
+/*     top: 325px; */
+/*     left: 885px; */
+    top: 76px;
+    left: 6px;
     cursor: pointer;
 }
 
 #menuContainer #RedoBtn {
-    top: 325px;
-    left: 967px;
+/*     top: 325px; */
+/*     left: 967px; */
+    top: 76px;
+    left: 88px;
     cursor: pointer;
 }

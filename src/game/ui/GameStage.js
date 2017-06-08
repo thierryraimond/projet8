@@ -26,12 +26,13 @@ function (
 
 
 		//Background
-		$("#GameStage").css("background-image", "url(" + SpriteManager.get("GameStageBackground").src + ")")
+//		$("#GameStage").css("background-image", "url(" + SpriteManager.get("GameStageBackground").src + ")")
+		$("#GameStage").css("background-image", "url(" + SpriteManager.get("background").src + ")")
 					   .css("width", 1136)
 					   .css("height", 640)
 					   .css("background-size","100% 100%")
 					   .css("position","absolute");
-
+		
 		/**
 		 * hudSpecial
 		 * - Title
@@ -41,8 +42,16 @@ function (
 
 		var unconsumedSpecial = 3;
 
-		$("#GameStage").append("<div id='hudSpecialContainer'></div>")
-
+		$("#GameStage").append("<div id='hudSpecialContainer'></div>");
+		
+		$("#hudSpecialContainer").css("background-image", "url(" + SpriteManager.get("gameStageLeft").src + ")")
+			.css("left", 18)
+			.css("top", 155)
+			.css("width", 253)
+			.css("height", 335)
+			.css("background-size","100% 100%")
+			.css("position","absolute")
+			.css("z-index", 1);
 		var alineaDeBase = 50;
 		var ecart = 60;
 
@@ -82,6 +91,14 @@ function (
 		var buttonNameList = ["LABEL_MENU_MENUBTN", "LABEL_MENU_OPTIONSBTN", "LABEL_MENU_HELPBTN", "LABEL_MENU_RESETBTN", "LABEL_MENU_UNDOBTN", "LABEL_MENU_REDOBTN"];
 
 		$("#GameStage").append("<div id='menuContainer'></div>");
+		$("#menuContainer").css("background-image", "url(" + SpriteManager.get("gameStageRight").src + ")")
+		.css("left", 879)
+		.css("top", 249)
+		.css("width", 254)
+		.css("height", 145)
+		.css("background-size","100% 100%")
+		.css("position","absolute")
+		.css("z-index", 1);
 
 		for (var i = 0; i < buttonList.length; i++) {
 			// Append

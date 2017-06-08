@@ -25,7 +25,7 @@ function (
 		$("#screenContainer").append("<div id='HighScore' class='popUp'></div>");
 		$("#blackScreen").show();
 
-		$("#screenContainer #HighScore").css("background-image", "url(" + SpriteManager.get("popUpVertical").src + ")")
+		$("#screenContainer #HighScore").css("background-image", "url(" + SpriteManager.get("popUp").src + ")")
 									  .css("width", 786.8)
 									  .css("height", 600,5)
 									  .css( "left", "170" )

@@ -5,13 +5,15 @@ define([
 	"underscore",
 	"src/utils/debug/Debug",
 	"src/utils/assetsmanager/SpriteManager",
-	"src/utils/Config"
+	"src/utils/Config",
+	"src/utils/loader/PreLoad"
 ],
 function (
 	_,
 	Debug,
 	SpriteManager,
-	Config
+	Config,
+	PreLoad
 ) {
 	var SpriteLoader = function () {
 		this.baseFolder = "assets/img/"
@@ -235,6 +237,7 @@ function (
 				path: this.baseFolder + "sprite/game/tiles/boxOnGoal.gif",
 				spriteSheetName: ""
 			},
+// déjà chargé en preload
 			{
 				name: "player",
 				path: this.baseFolder + "sprite/game/player.png",
@@ -277,31 +280,35 @@ function (
 				path: this.baseFolder + "sprite/ui/menuScreen/buttonStatic.png",
 				spriteSheetName: ""
 			},
-			{
-				name: "loadingBackground",
-				path: this.baseFolder + "sprite/ui/loadingScreen/Background.png",
-				spriteSheetName: ""
-			},
-			{
-				name: "loadingBar",
-				path: this.baseFolder + "sprite/ui/loadingScreen/loadingBar.png",
-				spriteSheetName: ""
-			},
-			{
-				name: "loadingCat",
-				path: this.baseFolder + "sprite/ui/loadingScreen/loadingCat.gif",
-				spriteSheetName: ""
-			},
+			// inutile
+//			{
+//				name: "loadingBackground",
+//				path: this.baseFolder + "sprite/ui/loadingScreen/Background.png",
+//				spriteSheetName: ""
+//			},
+			// déjà préchargé
+//			{
+//				name: "loadingBar",
+//				path: this.baseFolder + "sprite/ui/loadingScreen/loadingBar.png",
+//				spriteSheetName: ""
+//			},
+			// déjà préchargé
+//			{
+//				name: "loadingCat",
+//				path: this.baseFolder + "sprite/ui/loadingScreen/loadingCat.gif",
+//				spriteSheetName: ""
+//			},
 			{
 				name: "popUp",
 				path: this.baseFolder + "sprite/ui/popUp.png",
 				spriteSheetName: ""
 			},
-			{
-				name: "popUpVertical",
-				path: this.baseFolder + "sprite/ui/popUpVertical.png",
-				spriteSheetName: ""
-			},
+// inutile, remplacé par popUp
+//			{
+//				name: "popUpVertical",
+//				path: this.baseFolder + "sprite/ui/popUpVertical.png",
+//				spriteSheetName: ""
+//			},
 
 			// Drapeaux
 			{
@@ -412,9 +419,20 @@ function (
 				spriteSheetName: "btnSpriteSheet",
 				position: "0 100%"
 			},
+			// remplacé par background avec css
+//			{
+//				name: "GameStageBackground",
+//				path: this.baseFolder + "sprite/game/GameStageBackground.png",
+//				spriteSheetName: ""
+//			},
 			{
-				name: "GameStageBackground",
-				path: this.baseFolder + "sprite/game/GameStageBackground.png",
+				name: "gameStageLeft",
+				path: this.baseFolder + "sprite/game/gameStageLeft.jpg",
+				spriteSheetName: ""
+			},
+			{
+				name: "gameStageRight",
+				path: this.baseFolder + "sprite/game/gameStageRight.jpg",
 				spriteSheetName: ""
 			},
 			{
@@ -1420,6 +1438,11 @@ function (
 		
 //		var test = SpriteManager.getObj('englishFlag');
 //		console.log(test);
+		
+		// Ajouter les sprites ou image en preload à la liste du spriteManager
+		for (var i = 0; i < PreLoad.list.length; i++) {
+			SpriteManager.push(PreLoad.list[i].name, PreLoad.list[i].image, "", "");
+		}
 	};
 
 
