@@ -520,7 +520,8 @@ function (
 			}
 
 			$('#mapContainer').append('<div id="tile' + i + '" class="' + imageName + ' tile"></div>');
-			if (Config.spriteSheet && Config.adventureSelect === 2) {
+//			if (Config.spriteSheet && Config.adventureSelect === 2) {
+			if (Config.spriteSheet) {
 				$('#tile' + i).css("background-image", "url(" + SpriteManager.getObj(imageName).img.src + ")")
 					.css('background-size', SpriteManager.getObj(imageName).backgroundSize)
 					.css('background-position', SpriteManager.getObj(imageName).position);

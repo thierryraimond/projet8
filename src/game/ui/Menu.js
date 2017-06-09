@@ -22,12 +22,34 @@ function (
 	}
 
 
+
 	/**
 	 * Affiche le contenu dans gameContainer
 	 */
 	Menu.prototype.init = function (UIManager) {
 		$("#screenContainer").append("<div id='Menu'></div>");
 		$("#Menu").append("<div class='menuBackground'></div>");
+		
+		$(".menuBackground").css("background-image", "url(" + SpriteManager.get("background").src + ")");
+		
+		/** MENU SCREEN CSS **/
+//		<h1>Menu Screen</h1>
+//		<div class="screen">
+//		    <div id="MenuTitle">
+//		        <div id="sokonyan3"></div>
+//		    </div>
+//		    <div id="rainbowTitle">
+//		        <div id="rainbow"></div>
+//		    </div>
+//		    <div id="catRight2"></div>
+//		</div>
+		
+//		$("#Menu").append('<div id="MenuTitle"><div id="sokonyan3"></div></div><div id="rainbowTitle"><div id="rainbow"></div></div><div id="catRight2"></div>');
+		$("#Menu").append('<div id="sokonyan3"></div><div id="rainbow"></div><div id="catRight2"></div>');
+		$('#Menu #sokonyan3').css("background-image", "url(" + SpriteManager.get("sokonyan").src + ")");
+		$('#Menu #rainbow').css("background-image", "url(" + SpriteManager.get("loadingBar").src + ")");
+		$('#Menu #catRight2').css("background-image", "url(" + SpriteManager.get("player").src + ")");
+
 
 		$("#Menu").append("<div id='menuInfo' class='menuInfo'><span>" + txt.get("LABEL_MENU_INFOACCOUNT") + Account.name + "</span><br/><a id='deconnexion'>"+txt.get("LABEL_MENU_DECONNEXION")+"</a></div>");
 		$("#menuInfo").hide();

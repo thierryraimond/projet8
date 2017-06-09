@@ -235,7 +235,8 @@ function (
 				if (this.eatPower > 0 && nextCellValue == MapManager.cell.wall) {
 					map[nextCellId] = MapManager.cell.floor;
 					
-					if (Config.spriteSheet && Config.adventureSelect === 2) {
+//					if (Config.spriteSheet && Config.adventureSelect === 2) {
+					if (Config.spriteSheet) {
 						$("#tile" + nextCellId).css("background-image", "url(" + SpriteManager.getObj( $("#tile" + nextCellId).data().floorColor ).img.src + ")")
 							.css('background-size', SpriteManager.getObj( $("#tile" + nextCellId).data().floorColor ).backgroundSize)
 							.css('background-position', SpriteManager.getObj( $("#tile" + nextCellId).data().floorColor ).position);

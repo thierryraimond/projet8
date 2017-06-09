@@ -24,7 +24,7 @@ function (
 	LoadScreen.prototype.init = function (UIManager) {
 		$("#screenContainer").append("<div id='LoadScreen'></div>");
 
-		var imageList = ["loadingBackground", "loadingBar", "loadingCat"];
+		var imageList = ["loadingBackground", "loadingBar", "loadingCat", "sokonyanPreload"];
 //		var imageList = [ "loadingBackground", "sokonyanPreLoad", "loadingBar", "loadingCat" ];
 
 		for (var i = 0; i < imageList.length; i++) {

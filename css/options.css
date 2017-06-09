@@ -133,7 +133,7 @@ section {
     width: 56px;  
     height: 32px;  
     cursor: pointer;  
-    background: url('../assets/img/sprite/ui/volumeBar/handle.png');  
+/*     background: url('../assets/img/sprite/ui/volumeBar/handle.png');   */
     background-size: 100% 100%;
     font-weight: bold;  
     color: #1C94C4;  

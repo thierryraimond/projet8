@@ -26,7 +26,24 @@ function (
 
 		$("#Help").append("<div id='helpBackground'></div>");
 		$("#Help").css("position","absolute");
-		$("#helpBackground").css("background-image", "url(" + SpriteManager.get("helpBackground").src + ")")
+		$("#helpBackground").css("background-image", "url(" + SpriteManager.get("background").src + ")");
+		
+		
+		/**
+		 * Partie Entête de page
+		 */
+		$("#Help").append('<div id="HelpHead"><div id="sokonyan4"></div></div><div id="rainbowTitle2"><div id="rainbow2"></div></div><div id="catRight3"></div>');
+		$('#Help #sokonyan4').css("background-image", "url(" + SpriteManager.get("sokonyan").src + ")");
+		$('#Help #rainbow2').css("background-image", "url(" + SpriteManager.get("loadingBar").src + ")");
+		$('#Help #catRight3').css("background-image", "url(" + SpriteManager.get("player").src + ")");
+		
+		/**
+		 * Partie Image
+		 */
+		for (var i = 1; i <= 5; i++) {
+			$("#Help").append('<div id="helpImage'+i+'" class="helpImage"></div>');
+		}
+					
 
 		/**
 		 * Partie Titre

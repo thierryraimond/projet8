@@ -1,35 +1,17 @@
 /**
  * Css de la page loadScreen
  */
-/*  #loadingTitle { */
-/*     width: 100%; */
-/*     height: 120px; */
-/*     position: absolute; */
-/*     top: 130px; */
-/*     left: 0; */
-/*     display: flex; */
-/*     justify-content: space-around; */
-/* /*  border: 1px solid black; */ */
-/* } */
-/* .sokonyanPreLoad { */
-/*     width: 865px; */
-/*     height: 102px; */
-/* /*     background: url("../img/sokonyan_trans.png") no-repeat; */ */
-/*     background-size: 100% 100%; */
-/*     background-repeat: no-repeat; */
-/* } */
-/* .loadingBarEmpty { */
-/*     width: 1136px; */
-/*     height: 63px; */
-/*     position: absolute; */
-/*     top: 532px; */
-/* /*     background: url("../img/loadingBar_empty.jpg") no-repeat; */ */
-/*     background-size: 100% 100%; */
-/*     background-repeat: no-repeat; */
-/*     z-index: 1; */
-/* } */
- 
- 
+
+.sokonyanPreLoad {
+    width: 865px;
+    height: 102px;
+    top: 136px;
+    left: 135.5px;
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
  
 .loadingBackground {
 	position: absolute;

@@ -1,11 +1,69 @@
 /**
  * Css de la page du menu
  */
+ 
+ /* MENU SCREEN CSS */
+/* #MenuTitle { */
+/*     width: 100%; */
+/*     height: 120px; */
+/*     position: absolute; */
+/*     top: 30px; */
+/*     left: 0; */
+/*     display: flex; */
+/*     justify-content: space-around; */
+/* } */
+#sokonyan3 {
+    width: 628px;
+    height: 74px;
+/*     background: url("../img/sokonyan_trans.png") no-repeat; */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 2;
+    top: 30px;
+    left: 254px;
+    position: absolute;
+}
+/* #rainbowTitle { */
+/*     width: 100%; */
+/*     height: 40px; */
+/*     position: absolute; */
+/*     top: 84px; */
+/*     left: 0; */
+/*     display: flex; */
+/*     justify-content: space-around; */
+/* } */
+#rainbow {
+    width: 965px;
+    height: 40px;
+/*     background: url("../img/loadingBar.png") no-repeat; */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+    top: 84px;
+    left: 85.5px;
+    position: absolute;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+#catRight2 {
+    width: 159px;
+    height: 86px;
+    position: absolute;
+    top: 46px;
+    left: 952px;
+/*     background: url("../img/loadingCat.gif") no-repeat; */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 2;
+}
+/***/
+ 
 .menuBackground {
 	position: absolute;
 	height: 640px;
 	width: 1136px;
-	background-image: url(../assets/img/sprite/ui/menuScreen/Background.png);
+/* 	background-image: url(../assets/img/sprite/ui/menuScreen/Background.png); */
 }
 
 .buttonMenu {

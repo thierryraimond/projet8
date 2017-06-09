@@ -138,6 +138,8 @@ function (
 
 			sliderFunction[i]();
 		};
+		
+		$('.ui-slider-handle').css("background-image", "url(" + SpriteManager.get("player").src + ")");
 
 		$("#screenContainer #Options").append("<div class='optionsText title'>" + txt.get("LABEL_POPUP_OPTIONS_TITLE") + "</div>");
 

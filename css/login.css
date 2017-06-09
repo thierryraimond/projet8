@@ -1,6 +1,36 @@
 /**
  * Css de la page de connexion
  */
+#sokonyan1 {
+    width: 695px;
+    height: 82px;
+    top: 30px;
+    left: 220.5px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#catLeft {
+    width: 139px;
+    height: 75px;
+    top: 30px;
+    left: 41px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#catRight {
+    width: 139px;
+    height: 75px;
+    top: 30px;
+/*     right: 41px; */
+    left: 950px; 
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+ 
 .topDescription {
 	font-family:Fipps, sans-serif;
 	font-size: 1.3em;
@@ -24,7 +54,7 @@
 	position: absolute;
 	height: 640px;
 	width: 1136px;
-	background-image: url(../assets/img/sprite/ui/loginScreen/Background.png);
+/* 	background-image: url(../assets/img/sprite/ui/loginScreen/Background.png); */
 }
 
 

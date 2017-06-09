@@ -46,7 +46,8 @@ function (
 				image: new Image()
 			},
 			{ 
-				name: "loadingCat",
+//				name: "loadingCat",
+				name: "player",
 				path: this.baseFolder + "sprite/ui/loadingScreen/loadingCat.gif",
 				image: new Image()
 			},

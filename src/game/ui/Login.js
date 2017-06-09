@@ -30,10 +30,31 @@ function (
 		} else {
 			SoundManager.musicPlay("nyan_elevator", true);
 		}
-		
+
+
 
 		$("#screenContainer").append("<div id='Login'></div>");
 		$("#Login").append("<div class='loginBackground'></div>");
+		
+		$(".loginBackground").css("background-image", "url(" + SpriteManager.get("background").src + ")");
+		
+		/** LOGIN SCREEN CSS **/
+//		<h1>Login Screen</h1>
+//		<div class="screen">
+//		    <div id="loginTitle">
+//		        <div id="catLeft"></div>
+//		        <div id="sokonyan"></div>
+//		        <div id="catRight"></div>
+//		    </div>
+//		</div>
+		
+//		$("#Login").append('<div id="loginTitle"><div id="catLeft"></div><div id="sokonyan"></div><div id="catRight"></div></div>');
+		$("#Login").append('<div id="catLeft"></div><div id="sokonyan1"></div><div id="catRight"></div>');
+		$('#Login #catLeft').css("background-image", "url(" + SpriteManager.get("loadingCatReverse").src + ")");
+		$('#Login #sokonyan1').css("background-image", "url(" + SpriteManager.get("sokonyan").src + ")");
+		$('#Login #catRight').css("background-image", "url(" + SpriteManager.get("player").src + ")");
+		
+		
 		$("#Login").append("<div class='topDescription'>" + txt.get("LABEL_LOGINSCREEN_LOGINTEXT") + "</div>");
 		$("#Login").append("<div><input class='textBoxLogin' type='text' name='login' id='nameField' placeholder='" + txt.get("LABEL_LOGINSCREEN_LOGINTEXTFIELD") + "'</input><input class='textBoxPassword' type='password' name='pass' id='passField' placeholder='" + txt.get("LABEL_LOGINSCREEN_PASSTEXTFIELD") + "'</input></div>");
 		$("#Login").append("<div class='buttonConnection'>" + txt.get("LABEL_LOGINSCREEN_CONNECTBTN") + "</div>");

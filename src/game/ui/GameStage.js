@@ -174,6 +174,7 @@ function (
 					if (buttonList[id] == "MenuBtn") {
 						UIManager.closeScreen("GameStage", false);
 						MapManager.removeMap();
+//						UIManager.addScreen("Menu", true);
 					}
 					console.log(buttonList[id]);
 					if (buttonList[id] == "UndoBtn") {
