@@ -141,6 +141,13 @@ function (
 					if (temp.length == i) {
 						unlocked = true;
 					}
+					if (temp.length >= 1 && i == 1) {
+						if (temp[0].score > 0) {
+							unlocked = true;
+						} else {
+							unlocked = false;
+						}
+					}
 //					if (data.length <= i) {
 //						unlocked = false;
 //						score = 0;
