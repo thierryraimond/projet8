@@ -124,7 +124,7 @@ function (
 			for (var n = 0; n < Config.adventure.length; n++) {
 				var temp = (n === 0) ? classique : nouvelle ;
 				if (temp.length == 0) temp.push({score:0});
-//				console.log(temp);
+				console.log(temp);
 				this.progress.push(
 					{ level: [] }	
 				);
@@ -138,6 +138,9 @@ function (
 						score = temp[i].score;
 					}
 					
+					if (temp.length == i) {
+						unlocked = true;
+					}
 //					if (data.length <= i) {
 //						unlocked = false;
 //						score = 0;
@@ -153,8 +156,8 @@ function (
 				}
 			}			
 
-//			console.log("this.progress");
-//			console.log(this.progress);
+			console.log("this.progress");
+			console.log(this.progress);
 //			console.log(this.progress[0].level[0].score);
 		}.bind(this));
 	}
