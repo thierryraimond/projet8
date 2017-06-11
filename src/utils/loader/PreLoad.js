@@ -18,7 +18,7 @@ function (
 	PreLoad.prototype.init = function (callback) {
 		
 		this.baseFolder = "assets/img/";
-		txt.init();
+//		txt.init();
 
 //		this.imgSrc = [
 ////			this.baseFolder + "sprite/ui/loadingScreen/Background.png",

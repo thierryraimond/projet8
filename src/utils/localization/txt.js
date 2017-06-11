@@ -11,10 +11,13 @@ function (
 ) {
 	var txt = function () {
 		this.xliffData = {};
+		this.currentLoaded = 0;
+		this.totalToLoad = Config.availableLanguage.length;
 	}
 
 
-	txt.prototype.init = function () {
+	txt.prototype.init = function (callback) {
+				
 		for (var i = 0; i < Config.availableLanguage.length; i++) {
 			$.get(Config.xliffPath + Config.availableLanguage[i] + ".xliff?d=" + Date.now(),
 				(function (lang, obj) {
@@ -23,7 +26,13 @@ function (
 						obj.xliffData[lang] = xliff;
 					}
 				})(Config.availableLanguage[i], this)
-			);
+			)
+			.done(function(data){
+				this.currentLoaded++;
+				if (this.currentLoaded == this.totalToLoad) {
+					callback();
+				}
+			}.bind(this));
 		};
 	}
 

@@ -39,11 +39,20 @@ function (
 	Game.prototype.init = function () {
 		Debug.success("Game initialised.");
 		
-		PreLoad.init(function () {			
-			SpriteLoader.init(); 
-			SoundLoader.init();
-			GameManager.init();
+		// lance le Preload après le chargement des langues
+		txt.init(function (){
+			PreLoad.init(function () {			
+				SpriteLoader.init(); 
+				SoundLoader.init();
+				GameManager.init();
+			});
 		});
+			
+//		PreLoad.init(function () {			
+//			SpriteLoader.init(); 
+//			SoundLoader.init();
+//			GameManager.init();
+//		});
 	}
 
 
