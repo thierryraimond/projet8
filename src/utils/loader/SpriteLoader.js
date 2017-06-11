@@ -1446,8 +1446,10 @@ function (
 //		console.log(test);
 		
 		// Ajouter les sprites ou image en preload à la liste du spriteManager
-		for (var i = 0; i < PreLoad.list.length; i++) {
-			SpriteManager.push(PreLoad.list[i].name, PreLoad.list[i].image, "", "");
+		if (typeof PreLoad.list != "undefined") {
+			for (var i = 0; i < PreLoad.list.length; i++) {
+				SpriteManager.push(PreLoad.list[i].name, PreLoad.list[i].image, "", "");
+			}
 		}
 	};
 

@@ -37,13 +37,14 @@ function (
 	SoundManager.prototype.musicPlay = function (name, loop) {
 		if (loop == "undefined") loop = false;
 
-		var currentSound = -1;
-		for (var i = 0; i < this.list.length; i++) {
-			if (this.list[i].name == name) {
-				currentSound = this.list[i];
-				break;
-			}
-		}
+		var currentSound = this.get(name);
+//		var currentSound = -1;
+//		for (var i = 0; i < this.list.length; i++) {
+//			if (this.list[i].name == name) {
+//				currentSound = this.list[i];
+//				break;
+//			}
+//		}
 		
 		if (currentSound == -1) throw new Error("SoundManager : Sound \"" + name + "\" does not exist.");
 
@@ -70,13 +71,7 @@ function (
 	SoundManager.prototype.play = function (name, loop) {
 		if (loop == "undefined") loop = false;
 
-		var currentSound = -1;
-		for (var i = 0; i < this.list.length; i++) {
-			if (this.list[i].name == name) {
-				currentSound = this.list[i];
-				break;
-			}
-		}
+		var currentSound = this.get(name);
 
 		if (currentSound == -1) throw new Error("SoundManager : Sound \"" + name + "\" does not exist.");
 
@@ -107,9 +102,21 @@ function (
 
 		return instance;
 	};
+	
+	/**
+	 * Récupère l'objet d'un son de this.list grâce à son nom
+	 */
+	SoundManager.prototype.get = function (name) {
+		for (var i = 0; i < this.list.length; i++) {
+			if (this.list[i].name == name) {
+				return this.list[i];
+			}
+		}
+		return -1;
+	};
 
 
-	/*
+	/**
 	 * Stop un son
 	 */
 	SoundManager.prototype.stop = function (name) {
@@ -123,7 +130,7 @@ function (
 	};
 
 
-	/*
+	/**
 	 * Stop tout les sons en cours
 	 */
 	SoundManager.prototype.stopAll = function () {

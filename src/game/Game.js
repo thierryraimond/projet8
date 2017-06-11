@@ -38,9 +38,12 @@ function (
 	 */
 	Game.prototype.init = function () {
 		Debug.success("Game initialised.");
-		
+		var debut = new Date(); // temps du début du chargement
+		Debug.success("Language loader initialised");
 		// lance le Preload après le chargement des langues
 		txt.init(function (){
+			var fin = new Date(); // temps de fin du chargement
+			Debug.success("Language loader Completed, time: " + (fin.getTime()-debut.getTime()) + " ms.");
 			PreLoad.init(function () {			
 				SpriteLoader.init(); 
 				SoundLoader.init();
