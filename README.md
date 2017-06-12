@@ -49,7 +49,8 @@ le repertoire www/projet8/dist/ contient le projet avec les fichiers JS et CSS m
   - www/oc/projet8/test.html le fichier qui intégre la configuration des tests et exécute les tests.
 - le fichier d'audit des performances se trouve à la racine du projet au chemin suivant :
     www/oc/projet8/Optimiser les performances.pdf ou en téléchargement : https://github.com/thierryraimond/projet8/blob/master/Optimiser%20les%20performances.pdf
-
+    
+## Instructions du projet
 
 ### Énoncé
 Dans le monde professionnel, on est souvent amené à reprendre un projet existant. Que faire quand vous vous retrouvez avec le code de quelqu'un d'autre sous les bras ? Comment l'améliorer ? Voilà un savoir-faire qui vous sera très utile au quotidien !
