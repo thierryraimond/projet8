@@ -38,6 +38,7 @@ le repertoire www/projet8/dist/ contient le projet avec les fichiers JS et CSS m
 - Modifier le fichier www/oc/projet8/src/utils/Config.js
   - passer l'attribut this.local à false
   - modifier l'attribut this.webhost avec le chemin du projet sur votre serveur distant
+- Modifier le fichier PHP de configuration de la base données MySQL www/oc/projet8/src/game/server/php/config.php 
 - optimiser la version de production avec Node.js comme vu précédemment
 - Uploader le contenu de la version minifiée du repertoire www/projet8/dist/ dans le chemin du projet sur votre serveur distant
 

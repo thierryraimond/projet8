@@ -11,7 +11,7 @@ function (
 		/**
 		 * Information du jeu
 		 */
-		this.version = "1.0.3";
+		this.version = "1.0.4";
 		/* Réglage serveur local ou web */
 		this.local = true; // Si les requêtes se font en local ou vers le serveur web.
 		this.localhost = 'http://localhost/oc/projet8/';
