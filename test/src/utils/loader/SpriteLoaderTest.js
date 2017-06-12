@@ -4,12 +4,10 @@
  */
 define([
 	"src/utils/loader/SpriteLoader", 
-	"src/utils/debug/Debug",
 	"src/utils/Config"
 ], 
 function(
 	SpriteLoader, 
-	Debug,
 	Config
 ){
 		

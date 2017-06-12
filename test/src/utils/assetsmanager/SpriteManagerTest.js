@@ -18,13 +18,16 @@ function(
 			
 			image.src = "chemin/bidon.png";
 			
+			// test SpriteManager.prototype.push
 			spyOn(spriteManagerTest, 'push').and.callThrough();
 			tailleList = spriteManagerTest.list.length;
 			spriteManagerTest.push("unSprite", image, "", "");
 			
+			// test SpriteManager.prototype.get
 			spyOn(spriteManagerTest, 'get').and.callThrough();
 			retourGet = spriteManagerTest.get("unSprite");
 			
+			// test SpriteManager.prototype.getObj
 			spyOn(spriteManagerTest, 'getObj').and.callThrough();
 			retourGetObj = spriteManagerTest.getObj("unSprite");
 		});

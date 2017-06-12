@@ -31,14 +31,14 @@ function(
 			
 		});
 		
-		it("le chargement total est en cours", function() {
-//			expect(loaderManagerTest.getProgress()).toEqual(0);
-			expect(SpriteLoader.currentLoaded).toEqual(0);
-			expect(SpriteLoader.getProgress()).toEqual(0);
-			expect(SoundLoader.currentLoaded).toEqual(0);
-			expect(SoundLoader.getProgress()).toEqual(0);
-			expect(LoaderManager.getProgress()).toEqual(0);
-		});
+//		it("le chargement total est en cours", function() {
+////			expect(loaderManagerTest.getProgress()).toEqual(0);
+//			expect(SpriteLoader.currentLoaded).toEqual(0);
+//			expect(SpriteLoader.getProgress()).toEqual(0);
+//			expect(SoundLoader.currentLoaded).toEqual(0);
+//			expect(SoundLoader.getProgress()).toEqual(0);
+//			expect(LoaderManager.getProgress()).toEqual(0);
+//		});
 		
 		describe('Test le chargement de toutes les images et spritesheet ainsi que les sons en moins de 2 secondes', function() {
 			

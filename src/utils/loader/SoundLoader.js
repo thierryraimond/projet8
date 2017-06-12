@@ -136,7 +136,7 @@ function (
 
 
 	/**
-	 * Charge tous les sons, puis les stock dans le soundManager une fois chargé
+	 * Charge tous les sons, puis les stock dans le soundManager une fois chargés
 	 */
 	SoundLoader.prototype.init = function () {
 		Debug.success("SoundLoader initialised.");

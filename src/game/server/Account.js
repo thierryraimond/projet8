@@ -170,7 +170,7 @@ function (
 	}
 
 
-	/*
+	/**
 	 * Permet d'ajouter ou mettre à jour un score dans la database.
 	 * @level Niveau auquel correspond le score
 	 * @score Score à ajouter ou modifier
@@ -216,7 +216,7 @@ function (
 //	}
 
 
-	/*
+	/**
 	 * Récupère le top 10 des joueurs par aventure
 	 * @param adventureId
 	 * Return Objet du top 10
@@ -241,7 +241,7 @@ function (
 		}.bind(this));
 	}
 	
-	/*
+	/**
 	 * Récupère le userId du joueur
 	 */
 	Account.prototype.getUserId = function () {
