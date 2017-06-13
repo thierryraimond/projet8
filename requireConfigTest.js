@@ -82,6 +82,9 @@ define(['jasmine-boot'], function () {
 			'test/src/utils/loader/LoaderManagerTest',
 			'test/src/utils/assetsmanager/SpriteManagerTest',
 			'test/src/utils/assetsmanager/SoundManagerTest',
+			'test/src/game/game/MapManagerTest',
+			'test/src/utils/math/Vector2Test',
+			'test/src/game/game/PathfindingTest',
 			'test/src/game/server/AccountTest'
 		], 
 		function(){
